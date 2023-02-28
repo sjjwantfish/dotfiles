@@ -5,6 +5,10 @@ return {
     dependencies = {
       "hrsh7th/cmp-emoji",
     },
+    lazy = false,
+    event = {
+      "BufEnter",
+    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()

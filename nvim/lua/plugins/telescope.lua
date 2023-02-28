@@ -4,12 +4,20 @@ if not status_ok then
 end
 local actions = require("telescope.actions")
 
-telescope.load_extension("vim_bookmarks")
 return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     version = false, -- telescope did only one release, so use HEAD for now
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
+    },
+    config = function(_, opts)
+      telescope.load_extension("vim_bookmarks")
+      telescope.load_extension("undo")
+      telescope.setup(opts)
+    end,
     keys = {
       -- add a keymap to browse plugin files
       -- stylua: ignore
@@ -17,6 +25,16 @@ return {
         "<leader>fp",
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
+      },
+      {
+        "<leader>sf",
+        "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+        desc = "Current buffer fuzzy find",
+      },
+      {
+        "<leader>su",
+        "<cmd>Telescope undo<cr>",
+        desc = "Undo tree",
       },
     },
     opts = {
@@ -48,6 +66,11 @@ return {
             ["j"] = actions.move_selection_next,
             ["k"] = actions.move_selection_previous,
           },
+        },
+      },
+      extensions = {
+        undo = {
+          -- telescope-undo.nvim config, see below
         },
       },
     },

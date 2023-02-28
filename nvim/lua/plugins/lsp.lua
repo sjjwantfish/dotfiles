@@ -4,6 +4,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- lua
         "stylua",
         -- shell
         "shellcheck",
@@ -17,6 +18,7 @@ return {
         -- vue
         "vue-language-server",
         "eslint_d",
+        "prettier",
         -- buf
         "buf-language-server",
         "buf",
@@ -42,15 +44,37 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
+        eslint = {},
       },
     },
-    -- config = function()
+    -- TODO
+    -- config = function(_, opts)
     --   local navic = require("nvim-navic")
-    --   require("lspconfig").clangd.setup({
+    --   require("lspconfig").eslint_d.setup({
     --     on_attach = function(client, bufnr)
     --       navic.attach(client, bufnr)
     --     end,
     --   })
     -- end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    lazy = true,
+    init = function()
+      vim.g.navic_silence = true
+      require("lazyvim.util").on_attach(function(client, buffer)
+        if client.server_capabilities.documentSymbolProvider then
+          require("nvim-navic").attach(client, buffer)
+        end
+      end)
+    end,
+    opts = function()
+      return {
+        separator = " ",
+        highlight = true,
+        depth_limit = 5,
+        icons = require("lazyvim.config").icons.kinds,
+      }
+    end,
   },
 }

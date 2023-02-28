@@ -16,11 +16,14 @@ return {
       { "<leader>n", "<cmd>HopLineMW<cr>", desc = "HopLineMW" },
     },
   },
-  { "mbbill/undotree" },
+  -- { "mbbill/undotree" },
   { "lfv89/vim-interestingwords" },
   {
     "sindrets/diffview.nvim",
     -- requires = 'nvim-lua/plenary.nvim',
     dependencies = "nvim-lua/plenary.nvim",
+    keys = {
+      -- TODO
+    },
   },
 }

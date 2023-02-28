@@ -1,6 +1,7 @@
 local disabled_plugins = {
   "ggandor/leap.nvim",
   "ggandor/flit.nvim",
+  "catppuccin/nvim",
 }
 
 local M = {}
