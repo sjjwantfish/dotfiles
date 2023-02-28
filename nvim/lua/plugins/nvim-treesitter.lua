@@ -27,4 +27,7 @@ return {
       }
     end,
   },
+  { "windwp/nvim-autopairs" },
+  { "windwp/nvim-ts-autotag" },
+  { "p00f/nvim-ts-rainbow" },
 }

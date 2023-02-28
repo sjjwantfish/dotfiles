@@ -16,7 +16,7 @@ return {
           nls.builtins.formatting.isort,
           -- javascript javascriptreact typescript typescriptreact vue
           nls.builtins.formatting.eslint_d,
-          nls.builtins.formatting.prettier,
+          -- nls.builtins.formatting.prettier,
           nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
         },

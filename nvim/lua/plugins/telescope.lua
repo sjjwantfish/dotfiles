@@ -16,6 +16,7 @@ return {
     config = function(_, opts)
       telescope.load_extension("vim_bookmarks")
       telescope.load_extension("undo")
+      -- telescope.load_extension("aerial")
       telescope.setup(opts)
     end,
     keys = {
@@ -72,6 +73,14 @@ return {
         undo = {
           -- telescope-undo.nvim config, see below
         },
+        -- aerial = {
+        --   -- Display symbols as <root>.<parent>.<symbol>
+        --   show_nesting = {
+        --     ["_"] = false, -- This key will be the default
+        --     json = true, -- You can set the option for specific filetypes
+        --     yaml = true,
+        --   },
+        -- },
       },
     },
   },

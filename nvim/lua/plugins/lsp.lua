@@ -15,6 +15,7 @@ return {
         "flake8",
         "isort",
         "black",
+        "debugpy",
         -- vue
         "vue-language-server",
         "eslint_d",
@@ -29,12 +30,30 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+    keys = { { "<leader>cS", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     opts = {
       -- add your options that should be passed to the setup() function here
       position = "right",
     },
   },
+  -- {
+  --   "stevearc/aerial.nvim",
+  --   opts = {
+  --     filter_kind = {
+  --       "Class",
+  --       "Constructor",
+  --       "Enum",
+  --       "Function",
+  --       "Interface",
+  --       "Module",
+  --       "Method",
+  --       "Struct",
+  --     },
+  --   },
+  --   keys = {
+  --     { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Symbols Outline" },
+  --   },
+  -- },
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -44,7 +63,21 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
-        eslint = {},
+        eslint = {
+          codeAction = {
+            -- disableRuleComment = {
+            --   enable = true,
+            --   location = "separateLine"
+            -- },
+            showDocumentation = {
+              enable = true,
+            },
+          },
+          workingDirectory = {
+            mode = "location",
+          },
+        },
+        vuels = {},
       },
     },
     -- TODO

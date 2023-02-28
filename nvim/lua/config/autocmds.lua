@@ -26,3 +26,8 @@ if system('uname -r') =~ "microsoft"
   augroup END
 endif
 ]])
+
+-- -- dadbod
+-- vim.cmd([[
+--   autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+-- ]])

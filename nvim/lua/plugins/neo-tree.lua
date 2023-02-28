@@ -9,17 +9,19 @@ return {
         hide_by_pattern = { -- uses glob style patterns
           --"*.meta",
           --"*/src/*/tsconfig.json",
-          "__pycache__",
         },
         always_show = { -- remains visible even if other settings would normally hide it
-          --".gitignored",
+          ".gitignored",
         },
         never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
           --".DS_Store",
           --"thumbs.db"
+          -- "__pycache__",
+          ".pytest_cache",
         },
         never_show_by_pattern = { -- uses glob style patterns
           --".null-ls_*",
+          "*/__pycache__/*",
         },
       },
     },
