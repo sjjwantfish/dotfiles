@@ -16,6 +16,7 @@ return {
         "isort",
         "black",
         "debugpy",
+        "autoflake",
         -- vue
         "vue-language-server",
         "eslint_d",
@@ -30,7 +31,7 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
-    keys = { { "<leader>cS", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     opts = {
       -- add your options that should be passed to the setup() function here
       position = "right",
@@ -62,7 +63,20 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "off",
+                -- reportOptionalMemberAccessL = "none"
+                -- useLibraryCodeForTypes = false,
+                autoSearchPaths = false,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = false,
+              },
+            },
+          },
+        },
         eslint = {
           codeAction = {
             -- disableRuleComment = {

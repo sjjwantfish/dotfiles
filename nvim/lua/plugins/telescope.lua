@@ -37,6 +37,11 @@ return {
         "<cmd>Telescope undo<cr>",
         desc = "Undo tree",
       },
+      {
+        "<leader>sm",
+        "<cmd>Telescope vim_bookmarks<cr>",
+        desc = "Bookmarks",
+      },
     },
     opts = {
       defaults = {

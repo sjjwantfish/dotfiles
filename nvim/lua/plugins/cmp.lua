@@ -8,6 +8,7 @@ return {
     lazy = false,
     event = {
       "BufEnter",
+      "InsertEnter",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -60,7 +61,14 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       })
+
+      opts.confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      }
     end,
   },
 }
