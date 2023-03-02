@@ -3,14 +3,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      -- signs = {
-      --   add = { text = "▎" },
-      --   change = { text = "▎" },
-      --   delete = { text = "契" },
-      --   topdelete = { text = "契" },
-      --   changedelete = { text = "▎" },
-      --   untracked = { text = "▎" },
-      -- },
+      current_line_blame = true,
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
@@ -30,6 +23,7 @@ return {
       map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
       map("n", "<leader>gd", gs.diffthis, "Diff This")
       map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
+      map("n", "<leader>gf", "<cmd>Telescope git_status<cr>", "Git status")
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
