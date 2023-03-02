@@ -1,4 +1,5 @@
 return {
+  { "nvim-lua/plenary.nvim", lazy = false },
   -- selection
   { "gcmt/wildfire.vim" },
   -- bookmarks
@@ -44,5 +45,8 @@ return {
     keys = {
       -- TODO
     },
+    init = function()
+      require("diffview").setup()
+    end,
   },
 }
