@@ -27,6 +27,13 @@ if system('uname -r') =~ "microsoft"
 endif
 ]])
 
+-- auto reload sxhkd
+vim.cmd([[
+  augroup sxhkd
+  autocmd!
+  autocmd BufWrite sxhkdrc :!pkill -USR1 -x sxhkd
+]])
+
 -- -- dadbod
 -- vim.cmd([[
 --   autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })

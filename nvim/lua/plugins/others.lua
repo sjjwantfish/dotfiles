@@ -49,4 +49,5 @@ return {
       require("diffview").setup()
     end,
   },
+  { "kovetskiy/sxhkd-vim" },
 }
