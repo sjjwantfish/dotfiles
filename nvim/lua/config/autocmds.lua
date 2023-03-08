@@ -10,6 +10,7 @@ autocmd FileType css set shiftwidth=2
 autocmd FileType scss set shiftwidth=2
 autocmd FileType sh set shiftwidth=2
 autocmd FileType sxhkd set shiftwidth=2
+autocmd FileType yuck set shiftwidth=2
 ]])
 
 -- for wsl
