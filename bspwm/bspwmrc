@@ -110,7 +110,9 @@ xsetroot -cursor_name left_ptr
 # #                                 WINDOW RULES                               #
 # ##############################################################################
 
-bspc monitor -d 1 2 3 4 5 6  
+bspc wm -O DP-0 HDMI-0
+bspc monitor DP-0 -d 1 2 3
+bspc monitor HDMI-0 -d 4 5 6
 
 rule -a kitty                       follow=on focus=on
 rule -a Code                        follow=on focus=on
