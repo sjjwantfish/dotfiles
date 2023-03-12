@@ -43,7 +43,7 @@ ctrl + alt + l
 # super + shift + {f,w,e}
 # 	{thunar,firefox,code}
 super + r
-	rofi -show drun -theme $HOME/.config/rofi/launchers/type-1/style-6.rasi
+	rofi -show drun
 
 ##---------- System Keys ----------##
 

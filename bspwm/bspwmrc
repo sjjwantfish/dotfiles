@@ -82,7 +82,7 @@ xrandr --output DP-0 --primary --output HDMI-0 --left-of DP-0 --rotate left
 dunst --config $HOME/.config/dunst/dunstrc &
 
 # Run Picom.
-picom --config $HOME/.config/picom/picom.conf &
+picom --config $HOME/.config/picom/picom.conf -b --experimental-backend
 
 # Run polkit daemon if doesn't started.
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
