@@ -84,6 +84,9 @@ dunst --config $HOME/.config/dunst/dunstrc &
 # Run Picom.
 picom --config $HOME/.config/picom/picom.conf -b --experimental-backend
 
+# Run copyq
+copyq &
+
 # Run polkit daemon if doesn't started.
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &
 
