@@ -42,6 +42,11 @@ return {
         "<cmd>Telescope vim_bookmarks<cr>",
         desc = "Bookmarks",
       },
+      {
+        "<leader><leader>",
+        "<cmd>Telescope find_files<cr>",
+        desc = "Find Files",
+      },
     },
     opts = {
       defaults = {
