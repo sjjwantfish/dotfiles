@@ -10,3 +10,5 @@ opt.foldenable = true
 opt.foldmethod = "indent"
 opt.foldlevel = 99
 opt.winbar = "%=%m %f"
+opt.tabstop = 4 -- insert 2 spaces for a tab
+opt.softtabstop = 4
