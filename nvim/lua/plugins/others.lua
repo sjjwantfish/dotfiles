@@ -38,16 +38,5 @@ return {
       { "<a-N>", "<cmd>call WordNavigation(0)<cr>", desc = "Prev InterestingWords" },
     },
   },
-  {
-    "sindrets/diffview.nvim",
-    -- requires = 'nvim-lua/plenary.nvim',
-    dependencies = "nvim-lua/plenary.nvim",
-    keys = {
-      -- TODO
-    },
-    init = function()
-      require("diffview").setup()
-    end,
-  },
   { "kovetskiy/sxhkd-vim" },
 }
