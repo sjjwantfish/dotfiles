@@ -12,10 +12,12 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
+      "paopaol/telescope-git-diffs.nvim",
     },
     config = function(_, opts)
       telescope.load_extension("vim_bookmarks")
       telescope.load_extension("undo")
+      telescope.load_extension("git_diffs")
       -- telescope.load_extension("aerial")
       telescope.setup(opts)
     end,
@@ -52,6 +54,7 @@ return {
       pickers = {
         find_files = {
           find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+          theme = "dropdown",
         },
         live_grep = {
           vimgrep_arguments = {
@@ -66,6 +69,7 @@ return {
             "-g",
             "!.git",
           },
+          theme = "ivy",
         },
         -- Default configuration for builtin pickers goes here:
         -- picker_name = {
