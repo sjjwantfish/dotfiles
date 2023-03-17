@@ -119,6 +119,7 @@ rule -a Code                        follow=on focus=on
 rule -a firefox                     follow=on focus=on
 rule mpv                            state=floating
 rule feh                            state=floating
+rule copyq                          state=floating center=on
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
