@@ -47,6 +47,10 @@ super + r
 
 ##---------- System Keys ----------##
 
+# copyq
+ctrl + grave
+  copyq toggle
+
 # flameshot
 alt + f
 	flameshot gui
