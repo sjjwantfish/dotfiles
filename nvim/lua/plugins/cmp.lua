@@ -20,6 +20,14 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      opts.sources = {
+        { name = "nvim_lsp", group_index = 1 },
+        { name = "luasnip", group_index = 1 },
+        { name = "buffer", group_index = 1 },
+        { name = "path", group_index = 1 },
+        { name = "nvim_lua", group_index = 1 },
+        { name = "cmp_tabnine", group_index = 2 },
+      }
       opts.formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, item)
@@ -34,6 +42,7 @@ return {
             nvim_lua = "[NVIM_LUA]",
             buffer = "[Buffer]",
             path = "[Path]",
+            cmp_tabnine = "[TABNINE]",
           })[entry.source.name]
           return item
         end,
@@ -70,5 +79,23 @@ return {
         select = false,
       }
     end,
+  },
+  {
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    dependencies = "hrsh7th/nvim-cmp",
+    opts = {
+      max_lines = 1000,
+      max_num_results = 20,
+      sort = true,
+      run_on_every_keystroke = true,
+      snippet_placeholder = "..",
+      ignored_file_types = {
+        -- default is not to ignore
+        -- uncomment to ignore in lua:
+        -- lua = true
+      },
+      show_prediction_strength = false,
+    },
   },
 }
