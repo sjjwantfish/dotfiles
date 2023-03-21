@@ -54,7 +54,6 @@ return {
       pickers = {
         find_files = {
           find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
-          theme = "dropdown",
         },
         live_grep = {
           vimgrep_arguments = {
@@ -69,7 +68,6 @@ return {
             "-g",
             "!.git",
           },
-          theme = "dropdown",
         },
         -- Default configuration for builtin pickers goes here:
         -- picker_name = {
