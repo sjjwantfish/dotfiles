@@ -68,24 +68,6 @@ return {
       },
     },
   },
-  -- {
-  --   "stevearc/aerial.nvim",
-  --   opts = {
-  --     filter_kind = {
-  --       "Class",
-  --       "Constructor",
-  --       "Enum",
-  --       "Function",
-  --       "Interface",
-  --       "Module",
-  --       "Method",
-  --       "Struct",
-  --     },
-  --   },
-  --   keys = {
-  --     { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Symbols Outline" },
-  --   },
-  -- },
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -135,24 +117,54 @@ return {
     --   })
     -- end,
   },
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   lazy = true,
+  --   init = function()
+  --     vim.g.navic_silence = true
+  --     require("lazyvim.util").on_attach(function(client, buffer)
+  --       if client.server_capabilities.documentSymbolProvider then
+  --         require("nvim-navic").attach(client, buffer)
+  --       end
+  --     end)
+  --   end,
+  --   opts = function()
+  --     return {
+  --       separator = " ",
+  --       highlight = true,
+  --       depth_limit = 5,
+  --       icons = require("lazyvim.config").icons.kinds,
+  --     }
+  --   end,
+  -- },
   {
-    "SmiteshP/nvim-navic",
-    lazy = true,
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" },
+    },
     init = function()
-      vim.g.navic_silence = true
-      require("lazyvim.util").on_attach(function(client, buffer)
-        if client.server_capabilities.documentSymbolProvider then
-          require("nvim-navic").attach(client, buffer)
-        end
-      end)
+      local opts = { noremap = true, silent = true }
+      local keymap = vim.keymap.set
+      keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+      vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
+      vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
     end,
-    opts = function()
-      return {
-        separator = " ",
-        highlight = true,
-        depth_limit = 5,
-        icons = require("lazyvim.config").icons.kinds,
-      }
-    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    opts = {
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "double",
+      },
+      noice = true,
+      -- transparency = 1,
+    },
   },
 }

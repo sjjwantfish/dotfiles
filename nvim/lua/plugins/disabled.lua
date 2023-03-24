@@ -3,6 +3,7 @@ local disabled_plugins = {
   "ggandor/flit.nvim",
   "catppuccin/nvim",
   "echasnovski/mini.comment",
+  "SmiteshP/nvim-navic",
 }
 
 local M = {}

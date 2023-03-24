@@ -1,4 +1,18 @@
 return {
+  {
+    "folke/noice.nvim",
+    opts = {
+
+      lsp = {
+        signature = {
+          enabled = false,
+        },
+        progress = {
+          enabled = false,
+        },
+      },
+    },
+  },
   -- database
   { "tpope/vim-dadbod" },
   {

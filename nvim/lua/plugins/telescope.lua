@@ -49,6 +49,11 @@ return {
         "<cmd>Telescope find_files<cr>",
         desc = "Find Files",
       },
+      { "<leader>ca", false },
+      { "<leader>/", false },
+      -- { "gr", false },
+      -- { "gd", false },
+      { "<leader>p", "<cmd>Telescope live_grep<cr>", desc = "Find in files(Grep)" },
     },
     opts = {
       pickers = {
