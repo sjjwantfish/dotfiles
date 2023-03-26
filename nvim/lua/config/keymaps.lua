@@ -14,7 +14,29 @@ keymap("n", "Q", "<cmd>q<cr>", opts)
 keymap("n", "<c-q>", "<cmd>quitall<cr>", opts)
 keymap("i", "<a-l>", "<esc>la", opts)
 keymap("i", "<a-h>", "<esc>ha", opts)
-vim.api.nvim_del_keymap("n", "gr")
-vim.api.nvim_del_keymap("n", "gd")
-vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
-vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+
+vim.api.nvim_create_user_command("CheckDuplicates", function()
+  local dups = require("which-key.keys").duplicates
+  if vim.tbl_count(dups) > 0 then
+    vim.cmd('echoerr "Duplicate mapping detected"')
+  end
+end, { nargs = "?", complete = "dir" })
+
+vim.api.nvim_create_user_command("MySelect", function()
+  vim.ui.select({
+    { "name1" },
+    { "name2" },
+    { "name3" },
+  }, {
+    prompt = "Authenticate Type",
+    format_item = function(item)
+      -- print(item[1])
+      return item[1]
+    end,
+  }, function(item)
+    if item then
+      print(item[1])
+      -- item.callback()
+    end
+  end)
+end, { nargs = "?", complete = "dir" })

@@ -9,4 +9,28 @@ return {
       },
     },
   },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      options = {
+        transparent = true,
+        modules = {
+          cmp = false,
+        },
+      },
+      groups = {
+        all = {
+          -- NormalFloat = { bg = "NONE" },
+          NormalFloat = { fg = "fg1", bg = "NONE" },
+        },
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      -- colorscheme = "nightfox",
+      colorscheme = "tokyonight",
+    },
+  },
 }

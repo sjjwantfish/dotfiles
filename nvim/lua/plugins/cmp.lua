@@ -20,7 +20,46 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+
+      opts.window = {
+        completion = {
+          border = {
+            { "┏", "FloatBorder" },
+            { "━", "FloatBorder" },
+            { "┓", "FloatBorder" },
+            { "┃", "FloatBorder" },
+            { "┛", "FloatBorder" },
+            { "━", "FloatBorder" },
+            { "┗", "FloatBorder" },
+            { "┃", "FloatBorder" },
+          },
+          -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+          -- scrolloff = 0,
+          -- col_offset = 0,
+          -- side_padding = 1,
+          scrollbar = true,
+        },
+        documentation = {
+          -- max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
+          -- max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
+          scrollbar = true,
+          border = {
+            { "╔", "FloatBorder" },
+            { "═", "FloatBorder" },
+            { "╗", "FloatBorder" },
+            { "║", "FloatBorder" },
+            { "╝", "FloatBorder" },
+            { "═", "FloatBorder" },
+            { "╚", "FloatBorder" },
+            { "║", "FloatBorder" },
+          },
+          -- winhighlight = "FloatBorder:NormalFloat",
+        },
+      }
+
       opts.sources = {
+        -- { name = "codeium", group_index = 1 },
         { name = "nvim_lsp", group_index = 1 },
         { name = "luasnip", group_index = 1 },
         { name = "buffer", group_index = 1 },
@@ -37,6 +76,7 @@ return {
             item.kind = icons[item.kind] .. item.kind
           end
           item.menu = ({
+            -- codeium = "[Codeium]",
             nvim_lsp = "[LSP]",
             luasnip = "[Snippet]",
             nvim_lua = "[NVIM_LUA]",
@@ -98,4 +138,35 @@ return {
       show_prediction_strength = false,
     },
   },
+  {
+    "Exafunction/codeium.vim",
+    lazy = true,
+    event = { "InsertEnter" },
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+      -- Change '<C-g>' here to any keycode you like.
+      vim.keymap.set("i", "<a-a>", function()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true })
+      vim.keymap.set("i", "<a-i>", function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end, { expr = true })
+      -- vim.keymap.set("i", "<a-,>", function()
+      --   return vim.fn["codeium#CycleCompletions"](-1)
+      -- end, { expr = true })
+      vim.keymap.set("i", "<a-x>", function()
+        return vim.fn["codeium#Clear"]()
+      end, { expr = true })
+    end,
+  },
+  -- {
+  --   "jcdickinson/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup({})
+  --   end,
+  -- },
 }
