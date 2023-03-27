@@ -3,9 +3,6 @@ return {
     "folke/noice.nvim",
     opts = {
 
-      popupmenu = {
-        backend = "cmp",
-      },
       lsp = {
         signature = {
           enabled = false,

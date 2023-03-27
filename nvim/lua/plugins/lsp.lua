@@ -107,6 +107,20 @@ return {
         vuels = {},
       },
     },
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<cr>" }
+      keys[#keys + 1] = { "gh", "<cmd>Lspsaga lsp_finder<cr>" }
+      keys[#keys + 1] = { "gd", "<cmd>Lspsaga goto_type_definition<cr>" }
+      keys[#keys + 1] = { "<leader>ca", "<cmd>Lspsaga code_action<cr>" }
+      keys[#keys + 1] = { "gj", "<cmd>Lspsaga outgoing_calls<cr>" }
+      keys[#keys + 1] = { "gk", "<cmd>Lspsaga incoming_calls<cr>" }
+      keys[#keys + 1] = { "<leader>cS", "<cmd>Lspsaga outline<cr>" }
+      -- -- disable a keymap
+      -- keys[#keys + 1] = { "K", false }
+      -- -- add a keymap
+      -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
+    end,
     -- TODO
     -- config = function(_, opts)
     --   local navic = require("nvim-navic")
@@ -140,21 +154,62 @@ return {
   {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
-    config = function()
-      require("lspsaga").setup({})
-    end,
+    opts = {
+      preview = {
+        lines_above = 0,
+        lines_below = 10,
+      },
+      scroll_preview = {
+        scroll_down = "<C-f>",
+        scroll_up = "<C-b>",
+      },
+      request_timeout = 2000,
+      finder = {
+        --percentage
+        max_height = 0.5,
+        force_max_height = false,
+        keys = {
+          jump_to = "p",
+          edit = { "o", "<CR>" },
+          vsplit = "s",
+          split = "i",
+          tabe = "t",
+          tabnew = "r",
+          quit = { "q", "<ESC>" },
+          close_in_preview = "<ESC>",
+        },
+      },
+      outline = {
+        win_position = "right",
+        win_with = "",
+        win_width = 30,
+        show_detail = true,
+        auto_preview = true,
+        auto_refresh = true,
+        auto_close = true,
+        custom_sort = nil,
+        keys = {
+          jump = "o",
+          expand_collapse = "z",
+          quit = "q",
+        },
+      },
+    },
+    -- config = function()
+    --   require("lspsaga").setup({})
+    -- end,
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
-    init = function()
-      local opts = { noremap = true, silent = true }
-      local keymap = vim.keymap.set
-      keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
-      vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
-      vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-    end,
+    -- init = function()
+    --   local opts = { noremap = true, silent = true }
+    --   local keymap = vim.keymap.set
+    --   keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+    --   vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
+    --   vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
+    -- end,
   },
   {
     "ray-x/lsp_signature.nvim",
