@@ -20,19 +20,20 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      local border = {
+        { "┏", "FloatBorder" },
+        { "━", "FloatBorder" },
+        { "┓", "FloatBorder" },
+        { "┃", "FloatBorder" },
+        { "┛", "FloatBorder" },
+        { "━", "FloatBorder" },
+        { "┗", "FloatBorder" },
+        { "┃", "FloatBorder" },
+      }
 
       opts.window = {
         completion = {
-          border = {
-            { "┏", "FloatBorder" },
-            { "━", "FloatBorder" },
-            { "┓", "FloatBorder" },
-            { "┃", "FloatBorder" },
-            { "┛", "FloatBorder" },
-            { "━", "FloatBorder" },
-            { "┗", "FloatBorder" },
-            { "┃", "FloatBorder" },
-          },
+          border = border,
           -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
           -- scrolloff = 0,
@@ -44,16 +45,7 @@ return {
           -- max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
           -- max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
           scrollbar = true,
-          border = {
-            { "╔", "FloatBorder" },
-            { "═", "FloatBorder" },
-            { "╗", "FloatBorder" },
-            { "║", "FloatBorder" },
-            { "╝", "FloatBorder" },
-            { "═", "FloatBorder" },
-            { "╚", "FloatBorder" },
-            { "║", "FloatBorder" },
-          },
+          border = border,
           -- winhighlight = "FloatBorder:NormalFloat",
         },
       }
