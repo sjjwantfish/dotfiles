@@ -137,7 +137,7 @@ return {
     config = function()
       vim.g.codeium_disable_bindings = 1
       -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set("i", "<a-a>", function()
+      vim.keymap.set("i", "<a-s>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true })
       vim.keymap.set("i", "<a-i>", function()
