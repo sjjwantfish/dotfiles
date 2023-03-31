@@ -121,36 +121,7 @@ return {
       -- -- add a keymap
       -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
     end,
-    -- TODO
-    -- config = function(_, opts)
-    --   local navic = require("nvim-navic")
-    --   require("lspconfig").eslint_d.setup({
-    --     on_attach = function(client, bufnr)
-    --       navic.attach(client, bufnr)
-    --     end,
-    --   })
-    -- end,
   },
-  -- {
-  --   "SmiteshP/nvim-navic",
-  --   lazy = true,
-  --   init = function()
-  --     vim.g.navic_silence = true
-  --     require("lazyvim.util").on_attach(function(client, buffer)
-  --       if client.server_capabilities.documentSymbolProvider then
-  --         require("nvim-navic").attach(client, buffer)
-  --       end
-  --     end)
-  --   end,
-  --   opts = function()
-  --     return {
-  --       separator = " ",
-  --       highlight = true,
-  --       depth_limit = 5,
-  --       icons = require("lazyvim.config").icons.kinds,
-  --     }
-  --   end,
-  -- },
   {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
@@ -198,21 +169,10 @@ return {
         },
       },
     },
-    -- config = function()
-    --   require("lspsaga").setup({})
-    -- end,
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
-      --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
-    -- init = function()
-    --   local opts = { noremap = true, silent = true }
-    --   local keymap = vim.keymap.set
-    --   keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
-    --   vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)
-    --   vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-    -- end,
   },
   {
     "ray-x/lsp_signature.nvim",
@@ -223,6 +183,13 @@ return {
       },
       noice = true,
       -- transparency = 1,
+    },
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
     },
   },
 }

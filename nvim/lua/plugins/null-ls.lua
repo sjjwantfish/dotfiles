@@ -12,6 +12,12 @@ return {
           nls.builtins.formatting.stylua,
           -- python
           nls.builtins.diagnostics.flake8,
+          nls.builtins.diagnostics.pylint,
+          -- nls.builtins.diagnostics.pylint.with({
+          --   diagnostics_postprocess = function(diagnostic)
+          --     diagnostic.code = diagnostic.message_id
+          --   end,
+          -- }),
           nls.builtins.formatting.black.with({ extra_args = { "--fast" } }),
           nls.builtins.formatting.isort.with({ extra_args = { "--profile", "black", "--line-length=80" } }),
           nls.builtins.formatting.autoflake.with({
@@ -30,6 +36,8 @@ return {
           nls.builtins.formatting.eslint_d,
           nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
+          nls.builtins.code_actions.refactoring,
+          nls.builtins.diagnostics.codespell,
         },
       }
     end,
