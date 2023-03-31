@@ -51,7 +51,7 @@ return {
       }
 
       opts.sources = {
-        -- { name = "codeium", group_index = 1 },
+        { name = "codeium", group_index = 1 },
         { name = "nvim_lsp", group_index = 1 },
         { name = "luasnip", group_index = 1 },
         { name = "buffer", group_index = 1 },
@@ -68,7 +68,7 @@ return {
             item.kind = icons[item.kind] .. item.kind
           end
           item.menu = ({
-            -- codeium = "[Codeium]",
+            codeium = "[Codeium]",
             nvim_lsp = "[LSP]",
             luasnip = "[Snippet]",
             nvim_lua = "[NVIM_LUA]",
@@ -130,35 +130,35 @@ return {
       show_prediction_strength = false,
     },
   },
-  {
-    "Exafunction/codeium.vim",
-    lazy = true,
-    event = { "InsertEnter" },
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-      -- Change '<C-g>' here to any keycode you like.
-      vim.keymap.set("i", "<a-s>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true })
-      vim.keymap.set("i", "<a-i>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true })
-      -- vim.keymap.set("i", "<a-,>", function()
-      --   return vim.fn["codeium#CycleCompletions"](-1)
-      -- end, { expr = true })
-      vim.keymap.set("i", "<a-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true })
-    end,
-  },
   -- {
-  --   "jcdickinson/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
+  --   "Exafunction/codeium.vim",
+  --   lazy = true,
+  --   event = { "InsertEnter" },
   --   config = function()
-  --     require("codeium").setup({})
+  --     vim.g.codeium_disable_bindings = 1
+  --     -- Change '<C-g>' here to any keycode you like.
+  --     vim.keymap.set("i", "<a-s>", function()
+  --       return vim.fn["codeium#Accept"]()
+  --     end, { expr = true })
+  --     vim.keymap.set("i", "<a-i>", function()
+  --       return vim.fn["codeium#CycleCompletions"](1)
+  --     end, { expr = true })
+  --     -- vim.keymap.set("i", "<a-,>", function()
+  --     --   return vim.fn["codeium#CycleCompletions"](-1)
+  --     -- end, { expr = true })
+  --     vim.keymap.set("i", "<a-x>", function()
+  --       return vim.fn["codeium#Clear"]()
+  --     end, { expr = true })
   --   end,
   -- },
+  {
+    "jcdickinson/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({})
+    end,
+  },
 }

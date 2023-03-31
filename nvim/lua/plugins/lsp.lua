@@ -179,6 +179,9 @@ return {
           close_in_preview = "<ESC>",
         },
       },
+      lightbulb = {
+        virtual_text = false,
+      },
       outline = {
         win_position = "right",
         win_with = "",
