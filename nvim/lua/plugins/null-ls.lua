@@ -11,13 +11,17 @@ return {
           -- lua
           nls.builtins.formatting.stylua,
           -- python
-          nls.builtins.diagnostics.flake8,
-          nls.builtins.diagnostics.pylint,
-          -- nls.builtins.diagnostics.pylint.with({
-          --   diagnostics_postprocess = function(diagnostic)
-          --     diagnostic.code = diagnostic.message_id
-          --   end,
-          -- }),
+          -- nls.builtins.diagnostics.flake8,
+          -- nls.builtins.diagnostics.pylint,
+          nls.builtins.diagnostics.pylint.with({
+            diagnostics_postprocess = function(diagnostic)
+              diagnostic.code = diagnostic.message_id
+            end,
+            extra_args = {
+              "-d=C0112,C0114,C0115,C0116,W0621",
+              "--max-line-length=80",
+            },
+          }),
           nls.builtins.formatting.black.with({ extra_args = { "--fast" } }),
           nls.builtins.formatting.isort.with({ extra_args = { "--profile", "black", "--line-length=80" } }),
           nls.builtins.formatting.autoflake.with({
