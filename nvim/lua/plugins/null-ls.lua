@@ -18,7 +18,7 @@ return {
               diagnostic.code = diagnostic.message_id
             end,
             extra_args = {
-              "-d=C0112,C0114,C0115,C0116,W0621",
+              "-d=C0112,C0114,C0115,C0116,W0621,E0401",
               "--max-line-length=80",
             },
           }),
@@ -41,7 +41,7 @@ return {
           nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
           nls.builtins.code_actions.refactoring,
-          nls.builtins.diagnostics.codespell,
+          -- nls.builtins.diagnostics.codespell,
         },
       }
     end,
