@@ -18,7 +18,7 @@ return {
               diagnostic.code = diagnostic.message_id
             end,
             extra_args = {
-              "-d=C0112,C0114,C0115,C0116,W0621,E0401",
+              "-d=C0112,C0114,C0115,C0116,W0621,E0401,C0103",
               "--max-line-length=80",
             },
           }),
