@@ -19,11 +19,12 @@ return {
       telescope.load_extension("undo")
       telescope.load_extension("git_diffs")
       -- telescope.load_extension("aerial")
-      if vim.fn.winwidth(0) > 120 then
-        telescope.setup(opts)
-      else
-        telescope.setup({ defaults = require("telescope.themes").get_dropdown({ opts }) })
+      if vim.fn.winwidth(0) <= 120 then
+        opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({ opts }))
+        -- opts.defaults = require("telescope.themes").get_dropdown({ opts })
+        -- telescope.setup({ defaults = require("telescope.themes").get_dropdown({ opts }) })
       end
+      telescope.setup(opts)
     end,
     keys = {
       -- add a keymap to browse plugin files
