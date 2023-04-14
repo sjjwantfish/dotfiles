@@ -41,6 +41,7 @@ return {
           nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
           nls.builtins.code_actions.refactoring,
+          nls.builtins.code_actions.gomodifytags,
           -- nls.builtins.diagnostics.codespell,
         },
       }
