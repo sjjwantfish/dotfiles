@@ -22,7 +22,7 @@ return {
         "eslint_d",
         "prettier",
         -- buf
-        "buf-language-server",
+        -- "buf-language-server",
         "buf",
       },
     },

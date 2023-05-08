@@ -46,4 +46,39 @@ return {
       ]])
     end,
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = {
+      sections = {
+        lualine_z = {
+          "encoding",
+        },
+      },
+    },
+  },
+  {
+    "luukvbaal/statuscol.nvim",
+    lazy = false,
+    enabled = false,
+    config = function(_, opts)
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        -- configuration goes here, for example:
+        relculright = false,
+        segments = {
+          { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+          {
+            sign = { name = { "Diagnostic" }, maxwidth = 2, auto = true },
+            click = "v:lua.ScSa",
+          },
+          { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+          {
+            sign = { name = { ".*" }, maxwidth = 2, colwidth = 1, auto = true, wrap = true },
+            click = "v:lua.ScSa",
+          },
+        },
+      })
+    end,
+  },
 }
