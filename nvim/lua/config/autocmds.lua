@@ -2,16 +2,28 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-vim.cmd([[
-autocmd FileType javascript set shiftwidth=2
-autocmd FileType vue set shiftwidth=2
-autocmd FileType lua set shiftwidth=2
-autocmd FileType css set shiftwidth=2
-autocmd FileType scss set shiftwidth=2
-autocmd FileType sh set shiftwidth=2
-autocmd FileType sxhkd set shiftwidth=2
-autocmd FileType yuck set shiftwidth=2
-]])
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("set_shiftwidth"),
+  pattern = {
+    "javascript",
+    "vue",
+    "css",
+    "scss",
+    "typescript",
+    "lua",
+    "sh",
+    "sxhkd",
+    "yuck",
+  },
+  callback = function(_)
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+  end,
+})
 
 -- -- for wsl
 -- vim.cmd([[
