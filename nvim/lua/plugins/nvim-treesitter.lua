@@ -24,6 +24,8 @@ return {
         "vim",
         "yaml",
         "vue",
+        "css",
+        "scss",
       }
       opts.autopairs = {
         enable = true,

@@ -37,9 +37,9 @@ return {
             },
           }),
           -- javascript javascriptreact typescript typescriptreact vue
-          nls.builtins.formatting.eslint_d,
-          nls.builtins.formatting.prettier,
-          nls.builtins.diagnostics.eslint_d,
+          -- nls.builtins.formatting.eslint_d,
+          -- nls.builtins.formatting.prettier,
+          -- nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
           nls.builtins.code_actions.refactoring,
           nls.builtins.code_actions.gomodifytags,

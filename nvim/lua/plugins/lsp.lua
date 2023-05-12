@@ -19,8 +19,8 @@ return {
         "autoflake",
         -- vue
         "vue-language-server",
-        "eslint_d",
-        "prettier",
+        -- "eslint_d",
+        -- "prettier",
         -- buf
         -- "buf-language-server",
         "buf",
@@ -90,21 +90,29 @@ return {
             },
           },
         },
-        eslint = {
-          codeAction = {
-            -- disableRuleComment = {
-            --   enable = true,
-            --   location = "separateLine"
-            -- },
-            showDocumentation = {
-              enable = true,
-            },
-          },
-          -- workingDirectory = {
-          --   mode = "location",
+        -- eslint = {
+        --   codeAction = {
+        --     -- disableRuleComment = {
+        --     --   enable = true,
+        --     --   location = "separateLine"
+        --     -- },
+        --     showDocumentation = {
+        --       enable = true,
+        --     },
+        --   },
+        --   -- workingDirectory = {
+        --   --   mode = "location",
+        --   -- },
+        -- },
+        -- vuels = {},
+        volar = {
+          -- settings = {
+          --   vue = {
+          --     updateImportsOnFileMove = { enabled = true },
+          --     { server = { fullCompletionList = true, petiteVue = { supportHtmlFile = true } } },
+          --   },
           -- },
         },
-        vuels = {},
         gopls = {},
       },
     },
