@@ -67,6 +67,15 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # Run flameshot
 flameshot &
 
+# Run utools
+utools &
+
+# Run clash
+clash &
+
+# Run nutstore
+python3 /opt/nutstore/bin/nutstore-pydaemon.py &
+
 # Run fcitx5
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -120,6 +129,7 @@ rule -a firefox                     follow=on focus=on
 rule mpv                            state=floating
 rule feh                            state=floating
 rule copyq                          state=floating center=on
+rule utools                         focus=on
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
