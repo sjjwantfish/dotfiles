@@ -124,6 +124,7 @@ bspc monitor DP-0 -d 1 2 3
 bspc monitor HDMI-0 -d 4 5 6
 
 rule -a kitty                       follow=on focus=on
+rule -a wezterm                       follow=on focus=on
 rule -a Code                        follow=on focus=on
 rule -a firefox                     follow=on focus=on
 rule mpv                            state=floating

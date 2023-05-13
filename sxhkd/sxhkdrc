@@ -9,13 +9,15 @@
 
 ##---------- Keybindings for bspwm ----------##
 
-# Terminal (kitty)
+# Terminal
 super + Return
-	kitty
+	# kitty
+  wezterm
 
 # Terminal (floating)
 super + shift + Return
-	bspc rule -a kitty -o state=floating follow=on center=true rectangle=1020x600+0+0 && kitty
+	# bspc rule -a kitty -o state=floating follow=on center=true rectangle=1020x600+0+0 && kitty
+	bspc rule -a wezterm -o state=floating follow=on center=true rectangle=1020x600+0+0 && wezterm
 
 # # Open application menu
 # super + m
