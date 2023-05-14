@@ -6,6 +6,7 @@ config = {
 	-- color_scheme = "Batman",
 	color_scheme = "One Dark (Gogh)",
 	window_background_opacity = 0.9,
+	disable_default_key_bindings = false,
 	keys = {
 		{
 			key = "c",
@@ -18,13 +19,13 @@ config = {
 		{ key = "t", mods = "SUPER", action = act({ SpawnTab = "CurrentPaneDomain" }) },
 		{ key = "-", mods = "ALT", action = act({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 		{ key = "\\", mods = "ALT", action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
-		{ key = "h", mods = "ALT", action = act({ ActivatePaneDirection = "Left" }) },
-		{ key = "l", mods = "ALT", action = act({ ActivatePaneDirection = "Right" }) },
-		{ key = "k", mods = "ALT", action = act({ ActivatePaneDirection = "Up" }) },
-		{ key = "j", mods = "ALT", action = act({ ActivatePaneDirection = "Down" }) },
+		-- { key = "h", mods = "ALT", action = act({ ActivatePaneDirection = "Left" }) },
+		-- { key = "l", mods = "ALT", action = act({ ActivatePaneDirection = "Right" }) },
+		-- { key = "k", mods = "ALT", action = act({ ActivatePaneDirection = "Up" }) },
+		-- { key = "j", mods = "ALT", action = act({ ActivatePaneDirection = "Down" }) },
 		-- Activate Tab
-		{ key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
-		{ key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
+		-- { key = "h", mods = "ALT", action = act({ ActivateTabRelative = -1 }) },
+		-- { key = "l", mods = "ALT", action = act({ ActivateTabRelative = 1 }) },
 		{ key = "1", mods = "ALT", action = act({ ActivateTab = 0 }) },
 		{ key = "2", mods = "ALT", action = act({ ActivateTab = 1 }) },
 		{ key = "3", mods = "ALT", action = act({ ActivateTab = 2 }) },
