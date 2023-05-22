@@ -7,24 +7,33 @@ local act = wezterm.action
 -- 	-- dom.default_prog = { "zsh" }
 -- end
 
-local config = {
-	color_scheme = "Andromeda",
-	window_background_opacity = 0.9,
-	disable_default_key_bindings = false,
-	-- default_prog = { os.getenv("LOCALAPPDATA") .. "\\Microsoft\\WindowsApps\\pwsh.exe" },
-	default_prog = { "wsl.exe", "-d", "Arch20230315", "-u", "sujiajun", "--cd", "~" },
+local default_prog = nil
+local launch_menu = nil
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	local pwsh_prog = { os.getenv("LOCALAPPDATA") .. "\\Microsoft\\WindowsApps\\pwsh.exe" }
+	local wsl_arch_prog = { "wsl.exe", "-d", "Arch20230315", "-u", "sujiajun", "--cd", "~" }
+
+	default_prog = wsl_arch_prog
 	launch_menu = {
 		{
 			label = "Arch20230315",
-			args = { "wsl.exe", "-d", "Arch20230315", "-u", "sujiajun", "--cd", "~" },
+			args = wsl_arch_prog,
 			domain = { DomainName = "wsl" },
 		},
 		{
 			label = "pwsh",
-			args = { os.getenv("LOCALAPPDATA") .. "\\Microsoft\\WindowsApps\\pwsh.exe", "-nologo" },
+			args = pwsh_prog,
 			domain = { DomainName = "local" },
 		},
-	},
+	}
+end
+
+local config = {
+	color_scheme = "Andromeda",
+	window_background_opacity = 0.9,
+	disable_default_key_bindings = false,
+	default_prog = default_prog,
+	launch_menu = launch_menu,
 	keys = {
 		-- paste
 		{ key = "v", mods = "ALT", action = act({ PasteFrom = "Clipboard" }) },
