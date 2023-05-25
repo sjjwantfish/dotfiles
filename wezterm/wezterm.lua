@@ -48,7 +48,11 @@ local config = {
 			action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
 		},
 		-- search
-		{ key = "/", mods = "ALT", action = act.Search("CurrentSelectionOrEmptyString") },
+		{
+			key = "/",
+			mods = "ALT",
+			action = act.Multiple({ act.ClearSelection, act.Search({ CaseSensitiveString = "" }) }),
+		},
 		-- close pane
 		{ key = "w", mods = "ALT", action = act({ CloseCurrentPane = { confirm = true } }) },
 		-- Activate Pane
