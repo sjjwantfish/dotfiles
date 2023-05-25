@@ -29,6 +29,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	}
 end
 
+local search_pattern = {}
+
 local config = {
 	color_scheme = "Andromeda",
 	window_background_opacity = 0.9,
@@ -40,7 +42,31 @@ local config = {
 		{ key = "v", mods = "ALT", action = act({ PasteFrom = "Clipboard" }) },
 		{ key = "v", mods = "WIN", action = act({ PasteFrom = "Clipboard" }) },
 		-- quick select mode
-		{ key = "s", mods = "ALT", action = wezterm.action.QuickSelect },
+		-- { key = "s", mods = "ALT", action = wezterm.action.QuickSelect },
+		{
+			key = "s",
+			mods = "ALT",
+			action = wezterm.action.QuickSelectArgs({
+				patterns = {
+					"\\w+",
+				},
+			}),
+		},
+		{
+			key = "P",
+			mods = "CTRL",
+			action = wezterm.action.QuickSelectArgs({
+				label = "open url",
+				patterns = {
+					"https?://\\S+",
+				},
+				action = wezterm.action_callback(function(window, pane)
+					local url = window:get_selection_text_for_pane(pane)
+					wezterm.log_info("opening: " .. url)
+					wezterm.open_with(url)
+				end),
+			}),
+		},
 		-- copy mode
 		{
 			key = "c",
