@@ -14,7 +14,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	local pwsh_prog = { os.getenv("LOCALAPPDATA") .. "\\Microsoft\\WindowsApps\\pwsh.exe" }
 	local wsl_arch_prog = { "wsl.exe", "-d", "Arch20230315", "-u", "sujiajun", "--cd", "~" }
 
-	default_prog = wsl_arch_prog
+	default_prog = pwsh_prog
 	launch_menu = {
 		{
 			label = "Arch20230315",
