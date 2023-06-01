@@ -1,5 +1,4 @@
 return {
-
   { "mfussenegger/nvim-dap" },
   { "jayp0521/mason-nvim-dap.nvim" },
   { "nvim-telescope/telescope-dap.nvim" },

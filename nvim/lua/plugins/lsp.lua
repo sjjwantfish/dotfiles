@@ -125,6 +125,7 @@ return {
       keys[#keys + 1] = { "gj", "<cmd>Lspsaga outgoing_calls<cr>" }
       keys[#keys + 1] = { "gk", "<cmd>Lspsaga incoming_calls<cr>" }
       keys[#keys + 1] = { "<leader>cS", "<cmd>Lspsaga outline<cr>" }
+      keys[#keys + 1] = { "<leader>cR", "<cmd>LspRestart<cr>" }
       -- print(vim.fn.getcwd(vim.api.nvim_get_current_win(), vim.api.nvim_get_current_tabpage()))
     end,
   },
