@@ -36,6 +36,11 @@ return {
       -- add your options that should be passed to the setup() function here
       position = "right",
       symbol_blacklist = { "Variable" },
+      -- show_line_numbers = true,
+      -- show_relative_path = true,
+      keymaps = {
+        focus_location = "<Cr>",
+      },
       symbols = {
         File = { icon = "", hl = "@text.uri" },
         Module = { icon = "", hl = "@namespace" },
