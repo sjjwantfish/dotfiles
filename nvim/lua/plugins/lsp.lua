@@ -6,10 +6,14 @@ return {
       ensure_installed = {
         -- lua
         "stylua",
+        "lua-language-server",
         -- shell
         "shellcheck",
         "shfmt",
         "bash-language-server",
+        -- golang
+        "gopls",
+        "gomodifytags",
         -- python
         "pyright",
         "flake8",
@@ -17,12 +21,13 @@ return {
         "black",
         "debugpy",
         "autoflake",
+        "pylint",
         -- vue
         "vue-language-server",
         -- "eslint_d",
-        -- "prettier",
+        "prettier",
         -- buf
-        -- "buf-language-server",
+        "buf-language-server",
         "buf",
       },
     },
