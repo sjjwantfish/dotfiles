@@ -1,5 +1,4 @@
 return {
-  -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -12,7 +11,6 @@ return {
           nls.builtins.formatting.stylua,
           -- python
           -- nls.builtins.diagnostics.flake8,
-          -- nls.builtins.diagnostics.pylint,
           nls.builtins.diagnostics.pylint.with({
             diagnostics_postprocess = function(diagnostic)
               diagnostic.code = diagnostic.message_id
@@ -42,6 +40,7 @@ return {
           -- nls.builtins.diagnostics.eslint_d,
           nls.builtins.code_actions.gitsigns,
           nls.builtins.code_actions.refactoring,
+          -- golang
           nls.builtins.code_actions.gomodifytags,
           -- nls.builtins.diagnostics.codespell,
         },

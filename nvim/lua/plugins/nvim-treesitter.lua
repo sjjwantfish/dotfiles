@@ -9,7 +9,6 @@ return {
       opts.indent = { enable = true }
       opts.ensure_installed = {
         "bash",
-        "help",
         "html",
         "javascript",
         "json",

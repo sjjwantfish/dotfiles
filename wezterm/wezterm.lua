@@ -37,6 +37,7 @@ local config = {
 	disable_default_key_bindings = false,
 	default_prog = default_prog,
 	launch_menu = launch_menu,
+  font_size = 16,
 	keys = {
 		-- paste
 		{ key = "v", mods = "ALT", action = act({ PasteFrom = "Clipboard" }) },

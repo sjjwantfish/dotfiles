@@ -19,7 +19,6 @@ return {
         "flake8",
         "isort",
         "black",
-        "debugpy",
         "autoflake",
         "pylint",
         -- vue
