@@ -2,24 +2,9 @@ local function config_dapui()
   local dap, dapui = require("dap"), require("dapui")
   local debug_open = function()
     dapui.open()
-    vim.api.nvim_command("DapToggleRepl")
-  end
-  local debug_close = function()
-    dap.repl.close()
-    dapui.close()
-    vim.api.nvim_command("DapVirtualTextDisable")
   end
   dap.listeners.after.event_initialized["dapui_config"] = function()
     debug_open()
-  end
-  dap.listeners.before.event_terminated["dapui_config"] = function()
-    debug_close()
-  end
-  dap.listeners.before.event_exited["dapui_config"] = function()
-    debug_close()
-  end
-  dap.listeners.before.disconnect["dapui_config"] = function()
-    debug_close()
   end
 end
 
@@ -40,18 +25,31 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       config_dapui()
-      require("dap-python").setup(get_python_path())
     end,
     keys = {
       { "<leader>kk", "<cmd>DapToggleBreakpoint<cr>", desc = "Dap Toggle Breakpoint" },
       { "<leader>kc", "<cmd>DapContinue<cr>", desc = "DapContinue" },
     },
   },
-  { "mfussenegger/nvim-dap-python" },
+  {
+    "mfussenegger/nvim-dap-python",
+    config = function()
+      local dap_python = require("dap-python")
+      dap_python.test_runner = "pytest"
+      dap_python.setup(get_python_path())
+    end,
+    init = function()
+      local keymap = vim.api.nvim_set_keymap
+      local opts = { noremap = true, silent = true }
+      keymap("n", "<leader>tm", "<cmd>lua require('dap-python').test_method()<cr>", opts)
+      keymap("n", "<leader>tc", "<cmd>lua require('dap-python').test_class()<cr>", opts)
+      keymap("v", "<leader>ts", ":lua require('dap-python').debug_selection()<cr>", opts)
+    end,
+  },
   {
     "rcarriga/nvim-dap-ui",
     keys = {
-      { "<leader>kg", "<cmd>DapToggleRepl<cr>", desc = "Dap Repl" },
+      { "<leader>kt", "<cmd>lua require('dapui').toggle()<cr>", desc = "DapUI Toggle" },
     },
     opts = {
       layouts = {
@@ -65,6 +63,14 @@ return {
           },
           size = 40, -- 40 columns
           position = "left",
+        },
+        {
+          elements = {
+            { id = "repl", size = 0.5 },
+            { id = "console", size = 0.5 },
+          },
+          position = "bottom",
+          size = 10,
         },
       },
       floating = {

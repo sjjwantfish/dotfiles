@@ -13,11 +13,13 @@ return {
       "nvim-lua/plenary.nvim",
       "debugloop/telescope-undo.nvim",
       "paopaol/telescope-git-diffs.nvim",
+      "xiyaowong/telescope-emoji.nvim",
     },
     config = function(_, opts)
       telescope.load_extension("vim_bookmarks")
       telescope.load_extension("undo")
       telescope.load_extension("git_diffs")
+      telescope.load_extension("emoji")
       -- telescope.load_extension("aerial")
       if vim.fn.winwidth(0) <= 120 then
         opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({ opts }))

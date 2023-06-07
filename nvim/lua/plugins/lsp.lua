@@ -167,7 +167,7 @@ return {
         },
       },
       lightbulb = {
-        virtual_text = false,
+        enable = false,
       },
       outline = {
         win_position = "right",
