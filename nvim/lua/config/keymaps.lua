@@ -22,6 +22,23 @@ vim.api.nvim_create_user_command("CheckDuplicates", function()
   end
 end, { nargs = "?", complete = "dir" })
 
+vim.api.nvim_create_user_command("SwitchEncoding", function()
+  vim.ui.select({
+    "utf8",
+    "gbk",
+  }, {
+    prompt = "FileEncoding",
+  }, function(item)
+    if item then
+      local cmd = "e ++enc=" .. item
+      -- local cmd = "set fileencoding=" .. item
+      vim.cmd(cmd)
+      vim.notify("Set file encoding = " .. item)
+    end
+  end)
+end, { nargs = "?", complete = "dir" })
+keymap("n", "<leader>ue", "<cmd>SwitchEncoding<cr>", opts)
+
 vim.api.nvim_create_user_command("MySelect", function()
   vim.ui.select({
     { "name1" },
