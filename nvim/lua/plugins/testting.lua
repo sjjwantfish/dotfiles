@@ -4,6 +4,7 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-go",
     },
     config = function()
       require("neotest").setup({
@@ -13,6 +14,7 @@ return {
             args = { "--log-level", "DEBUG" },
             runner = "pytest",
           }),
+          require("neotest-go"),
         },
       })
     end,

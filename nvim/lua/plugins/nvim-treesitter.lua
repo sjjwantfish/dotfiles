@@ -25,6 +25,7 @@ return {
         "vue",
         "css",
         "scss",
+        "go",
       }
       opts.autopairs = {
         enable = true,
