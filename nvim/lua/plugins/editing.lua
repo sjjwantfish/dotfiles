@@ -9,4 +9,5 @@ return {
       })
     end,
   },
+  { "martinda/Jenkinsfile-vim-syntax" },
 }
