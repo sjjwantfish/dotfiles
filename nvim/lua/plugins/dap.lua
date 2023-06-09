@@ -38,13 +38,17 @@ return {
       dap_python.test_runner = "pytest"
       dap_python.setup(get_python_path())
     end,
-    init = function()
-      local keymap = vim.api.nvim_set_keymap
-      local opts = { noremap = true, silent = true }
-      keymap("n", "<leader>tm", "<cmd>lua require('dap-python').test_method()<cr>", opts)
-      keymap("n", "<leader>tc", "<cmd>lua require('dap-python').test_class()<cr>", opts)
-      keymap("v", "<leader>ts", ":lua require('dap-python').debug_selection()<cr>", opts)
-    end,
+    keys = {
+      { "<leader>tm", "<cmd>lua require('dap-python').test_method()<cr>", desc = "Dap test method" },
+      { "<leader>tc", "<cmd>lua require('dap-python').test_class()<cr>", desc = "Dap test class" },
+    },
+    -- init = function()
+    --   local keymap = vim.api.nvim_set_keymap
+    --   local opts = { noremap = true, silent = true }
+    --   keymap("n", "<leader>tm", "<cmd>lua require('dap-python').test_method()<cr>", opts)
+    --   keymap("n", "<leader>tc", "<cmd>lua require('dap-python').test_class()<cr>", opts)
+    --   keymap("v", "<leader>ts", ":lua require('dap-python').debug_selection()<cr>", opts)
+    -- end,
   },
   {
     "rcarriga/nvim-dap-ui",
