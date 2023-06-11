@@ -16,8 +16,19 @@ return {
       --   desc = "Diff with current branch",
       -- },
     },
-    init = function()
-      require("diffview").setup()
-    end,
+    -- init = function()
+    --   require("diffview").setup()
+    -- end,
+    opts = {
+      view = {
+        merge_tool = {
+          -- layout = "diff1_plain",
+          layout = "diff3_vertical",
+        },
+        -- file_history = {
+        --   layout = "diff2_vertical",
+        -- },
+      },
+    },
   },
 }
