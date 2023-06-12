@@ -4,6 +4,7 @@ local disabled_plugins = {
   "catppuccin/nvim",
   "echasnovski/mini.comment",
   "SmiteshP/nvim-navic",
+  "echasnovski/mini.surround",
 }
 
 local M = {}
