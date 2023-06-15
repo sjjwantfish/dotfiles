@@ -65,7 +65,7 @@ return {
     opts = {
       pickers = {
         find_files = {
-          find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools" },
+          find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools", "-g", "!vendor" },
         },
         live_grep = {
           vimgrep_arguments = {
@@ -81,6 +81,8 @@ return {
             "!.git",
             "-g",
             "!devTools",
+            "-g",
+            "!vendor",
           },
         },
         -- Default configuration for builtin pickers goes here:

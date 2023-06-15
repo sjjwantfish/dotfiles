@@ -3,7 +3,7 @@ return {
   -- selection
   { "gcmt/wildfire.vim" },
   -- { "mbbill/undotree" },
-  { "kovetskiy/sxhkd-vim" },
+  { "kovetskiy/sxhkd-vim", event = "VeryLazy" },
   {
     "max397574/better-escape.nvim",
     opts = {
