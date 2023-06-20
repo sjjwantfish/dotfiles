@@ -44,4 +44,5 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  { "Ttibsi/pre-commit.nvim" },
 }

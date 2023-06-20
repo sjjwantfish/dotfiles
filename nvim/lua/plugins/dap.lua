@@ -66,7 +66,7 @@ return {
             { id = "breakpoints", size = 0.15 },
           },
           size = 40, -- 40 columns
-          position = "left",
+          position = "right",
         },
         {
           elements = {

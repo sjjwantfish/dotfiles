@@ -215,7 +215,9 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        icons = { breakpoint = "B", currentpos = "->" },
+      })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
