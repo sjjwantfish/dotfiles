@@ -17,6 +17,7 @@ return {
       "nvim-telescope/telescope-live-grep-args.nvim",
       "crispgm/telescope-heading.nvim",
       "LinArcX/telescope-env.nvim",
+      "ThePrimeagen/harpoon",
     },
     config = function(_, opts)
       telescope.load_extension("vim_bookmarks")
@@ -25,6 +26,7 @@ return {
       telescope.load_extension("emoji")
       telescope.load_extension("heading")
       telescope.load_extension("env")
+      telescope.load_extension("harpoon")
       -- telescope.load_extension("aerial")
       if vim.fn.winwidth(0) <= 120 then
         opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({ opts }))
