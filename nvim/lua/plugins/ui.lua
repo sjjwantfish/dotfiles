@@ -36,6 +36,7 @@ return {
           Structure = "SHOW CREATE TABLE {table};",
         },
       }
+      vim.g.db_ui_win_position = "right"
     end,
   },
   {
