@@ -83,6 +83,7 @@ return {
         ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
         desc = "Live Grep with args",
       },
+      { "<leader>gB", ":Telescope git_branches<CR>", desc = "Checkout branch" },
     },
     opts = {
       pickers = {
