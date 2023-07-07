@@ -5,6 +5,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-emoji",
       "lukas-reineke/cmp-under-comparator",
+      "hrsh7th/cmp-calc",
     },
     lazy = false,
     event = {
@@ -59,6 +60,7 @@ return {
         { name = "buffer", group_index = 1 },
         { name = "path", group_index = 1 },
         { name = "nvim_lua", group_index = 1 },
+        { name = "calc", group_index = 1 },
       }
       opts.formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -76,6 +78,7 @@ return {
             buffer = "[Buffer]",
             path = "[Path]",
             cmp_tabnine = "[TABNINE]",
+            calc = "[CALC]",
           })[entry.source.name]
           return item
         end,
