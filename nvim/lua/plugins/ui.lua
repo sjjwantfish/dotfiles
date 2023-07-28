@@ -37,8 +37,6 @@ return {
         },
       }
       vim.g.db_ui_win_position = "right"
-      local ft = require("Comment.ft")
-      ft({ "mysql", "sql" }, { "--%s" })
     end,
   },
   {

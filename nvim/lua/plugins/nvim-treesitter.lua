@@ -42,6 +42,9 @@ return {
         -- colors = {}, -- table of hex strings
         -- termcolors = {} -- table of colour name strings
       }
+      opts.context_commentstring = {
+        enable = true,
+      }
     end,
   },
   {

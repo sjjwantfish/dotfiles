@@ -15,4 +15,5 @@ return {
   },
 
   { "romainl/vim-cool" },
+  { "ap/vim-css-color" },
 }

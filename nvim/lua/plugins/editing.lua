@@ -12,31 +12,41 @@ return {
   { "martinda/Jenkinsfile-vim-syntax" },
   {
     "numToStr/Comment.nvim",
-    -- enabled = false,
-    init = function()
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>m",
-        "<Plug>(comment_toggle_linewise_current)",
-        -- "Comment toggle current line",
-        { noremap = true, silent = true }
-      )
-      vim.api.nvim_set_keymap(
-        "v",
-        "<leader>m",
-        "<Plug>(comment_toggle_linewise_visual)",
-        -- "Comment toggle linewise (visual)",
-        { noremap = true, silent = true }
-      )
-    end,
-    opts = {
-      ---Add a space b/w comment and the line
-      padding = true,
-      ---Whether the cursor should stay at its position
-      sticky = true,
-      ---Lines to be ignored while (un)comment
-      ignore = "^$",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
     },
+    opts = {
+      padding = true,
+      sticky = true,
+      ignore = "^$",
+      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      post_hook = nil,
+    },
+    keys = {
+      {
+        "<leader>m",
+        mode = { "n" },
+        function()
+          require("Comment.api").toggle.linewise.current()
+        end,
+        desc = "Comment Toggle line",
+      },
+      {
+        "<leader>m",
+        mode = { "v" },
+        function()
+          local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+          local api = require("Comment.api")
+          vim.api.nvim_feedkeys(esc, "nx", false)
+          api.toggle.linewise(vim.fn.visualmode())
+        end,
+        desc = "Comment Toggle line",
+      },
+    },
+    init = function()
+      local ft = require("Comment.ft")
+      ft({ "mysql", "sql" }, { "--%s" })
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
