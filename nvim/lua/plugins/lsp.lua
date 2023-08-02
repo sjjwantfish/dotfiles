@@ -94,7 +94,7 @@ return {
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<cr>" }
-      keys[#keys + 1] = { "gh", "<cmd>Lspsaga lsp_finder<cr>" }
+      keys[#keys + 1] = { "gh", "<cmd>Lspsaga finder<cr>" }
       keys[#keys + 1] = { "gd", "<cmd>Lspsaga goto_definition<cr>" }
       keys[#keys + 1] = { "<leader>ca", "<cmd>Lspsaga code_action<cr>" }
       keys[#keys + 1] = { "gj", "<cmd>Lspsaga outgoing_calls<cr>" }
