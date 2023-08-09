@@ -1,11 +1,11 @@
 {
-  "Comment.nvim": { "branch": "master", "commit": "bbbc8b4de73aa9933754528cd95507384f600ed6" },
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "Jenkinsfile-vim-syntax": { "branch": "master", "commit": "0d05729168ea44d60862f17cffa80024ab30bcc9" },
   "LazyVim": { "branch": "main", "commit": "aa1cccf230a01bd85d5173f7d87f782fd83caa88" },
   "LuaSnip": { "branch": "master", "commit": "e81cbe6004051c390721d8570a4a0541ceb0df10" },
   "NeoZoom.lua": { "branch": "main", "commit": "1289b900bd478fd135dcc0faf4a43b3cf7524097" },
   "aerial.nvim": { "branch": "master", "commit": "2a6498f4b5f8e52557eadbcd2b3f91da8fe438ca" },
-  "alpha-nvim": { "branch": "main", "commit": "9e33db324b8bb7a147bce9ea5496686ee859461d" },
+  "alpha-nvim": { "branch": "main", "commit": "e4fc5e29b731bdf55d204c5c6a11dc3be70f3b65" },
   "better-escape.nvim": { "branch": "master", "commit": "7031dc734add47bb71c010e0551829fa5799375f" },
   "bufferline.nvim": { "branch": "main", "commit": "99f0932365b34e22549ff58e1bea388465d15e99" },
   "catppuccin": { "branch": "main", "commit": "057c34f849cf21059487d849e2f3b3efcd4ee0eb" },
