@@ -35,12 +35,29 @@ return {
       opts.extensions = {
         undo = {},
         live_grep_args = {
+          theme = "ivy",
           auto_quoting = true,
           mappings = {
             i = {
               -- ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
             },
+          },
+          vimgrep_arguments = {
+            "rg",
+            "--hidden",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "-g",
+            "!.git",
+            "-g",
+            "!devTools",
+            "-g",
+            "!vendor",
           },
         },
         heading = { treesitter = true },
@@ -88,9 +105,11 @@ return {
     opts = {
       pickers = {
         find_files = {
+          theme = "ivy",
           find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools", "-g", "!vendor" },
         },
         live_grep = {
+          theme = "ivy",
           vimgrep_arguments = {
             "rg",
             "--hidden",
@@ -110,6 +129,9 @@ return {
         },
       },
       defaults = {
+        cache_picker = {
+          num_pickers = 5,
+        },
         mappings = {
           i = {
             ["<C-j>"] = actions.move_selection_next,
