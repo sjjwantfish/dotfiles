@@ -151,6 +151,9 @@ return {
             ["<C-b>"] = function(...)
               return actions.preview_scrolling_up(...)
             end,
+            ["<ESC>"] = function(...)
+              return actions.close(...)
+            end,
           },
           n = {
             -- ["q"] = function(...)

@@ -120,4 +120,43 @@ return {
       { "<leader>wt", "<cmd>NeoZoomToggle<cr>", desc = "Find Plugin File" },
     },
   },
+  { "kevinhwang91/nvim-bqf", opts = {
+    preview = {
+      winblend = 0,
+    },
+  } },
+  {
+    "xiyaowong/transparent.nvim",
+    enabled = false,
+    opts = {
+      groups = { -- table: default groups
+        "Normal",
+        "NormalNC",
+        "NormalFloat",
+        "Comment",
+        "Constant",
+        "Special",
+        "Identifier",
+        "Statement",
+        "PreProc",
+        "Type",
+        "Underlined",
+        "Todo",
+        "String",
+        "Function",
+        "Conditional",
+        "Repeat",
+        "Operator",
+        "Structure",
+        "LineNr",
+        "NonText",
+        "SignColumn",
+        "CursorLineNr",
+        "EndOfBuffer",
+        -- "BqfPreviewFloat",
+      },
+      extra_groups = {}, -- table: additional groups that should be cleared
+      exclude_groups = {}, -- table: groups you don't want to clear
+    },
+  },
 }
