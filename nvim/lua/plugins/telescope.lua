@@ -28,9 +28,6 @@ return {
       telescope.load_extension("env")
       telescope.load_extension("harpoon")
       -- telescope.load_extension("aerial")
-      if vim.fn.winwidth(0) <= 120 then
-        opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({ opts }))
-      end
       local lga_actions = require("telescope-live-grep-args.actions")
       opts.extensions = {
         undo = {},
@@ -107,6 +104,7 @@ return {
         find_files = {
           theme = "ivy",
           find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools", "-g", "!vendor" },
+          previewer = false,
         },
         live_grep = {
           theme = "ivy",

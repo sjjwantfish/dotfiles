@@ -48,14 +48,14 @@ return {
     "projekt0n/github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require("github-theme").setup({
-        options = {
-          transparent = true,
-        },
-      })
-      -- vim.cmd("colorscheme github_dark_tritanopia")
-    end,
+    -- config = function()
+    --   require("github-theme").setup({
+    --     options = {
+    --       transparent = true,
+    --     },
+    --   })
+    --   -- vim.cmd("colorscheme github_dark_tritanopia")
+    -- end,
   },
   { "Everblush/nvim", name = "everblush", opts = {
     transparent_background = false,
@@ -76,13 +76,13 @@ return {
     opts = {
       -- colorscheme = "nightfox",
       -- colorscheme = "tokyonight",
-      -- colorscheme = "material-oceanic",
+      colorscheme = "material-oceanic",
       -- colorscheme = "material-deep-ocean",
       -- colorscheme = "material-darker",
       -- colorscheme = "nord",
       -- colorscheme = "github_dark",
       -- colorscheme = "github_dark_colorblind",
-      colorscheme = "github_dark_tritanopia",
+      -- colorscheme = "github_dark_tritanopia",
       -- colorscheme = "everblush",
       -- colorscheme = "onedark",
     },
