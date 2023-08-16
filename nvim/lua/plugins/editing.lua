@@ -46,6 +46,7 @@ return {
     init = function()
       local ft = require("Comment.ft")
       ft({ "mysql", "sql" }, { "--%s" })
+      ft({ "Jenkinsfile" }, { "//%s" })
     end,
   },
   {
