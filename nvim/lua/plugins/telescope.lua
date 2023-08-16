@@ -4,6 +4,24 @@ if not status_ok then
 end
 local actions = require("telescope.actions")
 
+local function get_visual()
+  local _, ls, cs = unpack(vim.fn.getpos("v"))
+  local _, le, ce = unpack(vim.fn.getpos("."))
+  local lt
+  local ct
+  if ls > le then
+    lt = ls
+    ls = le
+    le = lt
+  end
+  if cs > ce then
+    ct = cs
+    cs = ce
+    ce = ct
+  end
+  return vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})
+end
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -63,6 +81,22 @@ return {
     end,
     keys = {
       {
+        "gs",
+        mode = { "v", "x", "n" },
+        function()
+          local mode = vim.api.nvim_get_mode().mode
+          if mode == "n" then
+            local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+            live_grep_args_shortcuts.grep_word_under_cursor()
+          else
+            local live_grep_args = require("telescope").extensions.live_grep_args
+            local visual_text = get_visual()
+            live_grep_args.live_grep_args({ default_text = visual_text[1] })
+          end
+        end,
+        desc = "Live Grep with word",
+      },
+      {
         "<leader>fp",
         function()
           require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
@@ -101,6 +135,9 @@ return {
     },
     opts = {
       pickers = {
+        git_files = {
+          theme = "ivy",
+        },
         find_files = {
           theme = "ivy",
           find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools", "-g", "!vendor" },
