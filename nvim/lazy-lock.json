@@ -79,6 +79,7 @@
   "pre-commit.nvim": { "branch": "main", "commit": "4a608cef0f0a196fa39cdc60579eb9cf601d21c4" },
   "refactoring.nvim": { "branch": "master", "commit": "5359e74291164fcaeaaecdea9ba753ad54eb53d0" },
   "sxhkd-vim": { "branch": "master", "commit": "7b7937ff5c220fbef3bdd883d567513246516e06" },
+  "tabset.nvim": { "branch": "main", "commit": "996f95e4105d053a163437e19a40bd2ea10abeb2" },
   "telescope-emoji.nvim": { "branch": "master", "commit": "86248d97be84a1ce83f0541500ef9edc99ea2aa1" },
   "telescope-env.nvim": { "branch": "master", "commit": "00a703cc7b713cdda0a981d88fddf3ce25502af5" },
   "telescope-git-diffs.nvim": { "branch": "main", "commit": "3cce2eb1079ebee65b322638bca47b1a2307456a" },

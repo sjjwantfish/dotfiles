@@ -17,4 +17,33 @@ return {
       -- end,
     },
   },
+  {
+    "FotiadisM/tabset.nvim",
+    opts = {
+      defaults = {
+        tabwidth = 4,
+        expandtab = true,
+      },
+      languages = {
+        {
+          filetypes = {
+            "vue",
+            "css",
+            "scss",
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "sh",
+            "lua",
+            "sxhkd",
+            "yuck",
+          },
+          config = {
+            tabwidth = 2,
+          },
+        },
+      },
+    },
+  },
 }

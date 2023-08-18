@@ -169,6 +169,12 @@ return {
             ["<c-t>"] = function(...)
               return require("trouble.providers.telescope").open_with_trouble(...)
             end,
+            ["<S-Down>"] = function(...)
+              return actions.cycle_history_next(...)
+            end,
+            ["<S-Up>"] = function(...)
+              return actions.cycle_history_prev(...)
+            end,
             ["<C-Down>"] = function(...)
               return actions.cycle_history_next(...)
             end,

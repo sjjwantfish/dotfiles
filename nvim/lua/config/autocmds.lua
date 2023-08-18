@@ -7,21 +7,13 @@ local function augroup(name)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("set_shiftwidth"),
+  group = augroup("move_window"),
   pattern = {
-    "javascript",
-    "vue",
-    "css",
-    "scss",
-    "typescript",
-    "lua",
-    "sh",
-    "sxhkd",
-    "yuck",
+    "help",
+    -- "markdown",
   },
   callback = function(_)
-    vim.opt.shiftwidth = 2
-    vim.opt.tabstop = 2
+    vim.cmd("wincmd L")
   end,
 })
 
