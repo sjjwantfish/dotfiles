@@ -76,11 +76,11 @@ return {
     opts = {
       -- colorscheme = "nightfox",
       -- colorscheme = "tokyonight",
-      colorscheme = "material-oceanic",
+      -- colorscheme = "material-oceanic",
       -- colorscheme = "material-deep-ocean",
       -- colorscheme = "material-darker",
       -- colorscheme = "nord",
-      -- colorscheme = "github_dark",
+      colorscheme = "github_dark",
       -- colorscheme = "github_dark_colorblind",
       -- colorscheme = "github_dark_tritanopia",
       -- colorscheme = "everblush",

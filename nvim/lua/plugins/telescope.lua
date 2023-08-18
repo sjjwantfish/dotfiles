@@ -67,7 +67,7 @@ return {
             "-g",
             "!vendor",
             "-g",
-            "node_modules",
+            "!node_modules",
           },
         },
         heading = { treesitter = true },
