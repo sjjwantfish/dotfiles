@@ -7,17 +7,9 @@ local actions = require("telescope.actions")
 local function get_visual()
   local _, ls, cs = unpack(vim.fn.getpos("v"))
   local _, le, ce = unpack(vim.fn.getpos("."))
-  local lt
-  local ct
-  if ls > le then
-    lt = ls
-    ls = le
-    le = lt
-  end
-  if cs > ce then
-    ct = cs
-    cs = ce
-    ce = ct
+
+  if ls > le or (ls == le and cs > ce) then
+    ls, cs, le, ce = le, ce, ls, cs
   end
   return vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})
 end
