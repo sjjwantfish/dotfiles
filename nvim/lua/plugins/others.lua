@@ -38,6 +38,7 @@ return {
             "lua",
             "sxhkd",
             "yuck",
+            "yaml",
           },
           config = {
             tabwidth = 2,
