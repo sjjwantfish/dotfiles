@@ -57,64 +57,68 @@ return {
   },
   { "Ttibsi/pre-commit.nvim" },
   {
+    -- User interface is subject to change without notice.
     "monaqa/dial.nvim",
+    init = function()
+      vim.keymap.set("n", "<C-a>", function()
+        require("dial.map").manipulate("increment", "normal")
+      end)
+      vim.keymap.set("n", "<C-x>", function()
+        require("dial.map").manipulate("decrement", "normal")
+      end)
+      vim.keymap.set("n", "g<C-a>", function()
+        require("dial.map").manipulate("increment", "gnormal")
+      end)
+      vim.keymap.set("n", "g<C-x>", function()
+        require("dial.map").manipulate("decrement", "gnormal")
+      end)
+      vim.keymap.set("v", "<C-a>", function()
+        require("dial.map").manipulate("increment", "visual")
+      end)
+      vim.keymap.set("v", "<C-x>", function()
+        require("dial.map").manipulate("decrement", "visual")
+      end)
+      vim.keymap.set("v", "g<C-a>", function()
+        require("dial.map").manipulate("increment", "gvisual")
+      end)
+      vim.keymap.set("v", "g<C-x>", function()
+        require("dial.map").manipulate("decrement", "gvisual")
+      end)
+    end,
+  },
+  {
+    "chrisgrieser/nvim-puppeteer",
+    -- required :TSInstall python javascript typescript
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- plugin lazy-loads itself. Can also load on filetypes.
+  },
+  {
+    "nguyenvukhang/nvim-toggler",
+    opts = {
+      -- removes the default <leader>i keymap
+      remove_default_keybinds = true,
+      -- removes the default set of inverses
+      remove_default_inverses = false,
+    },
     keys = {
       {
-        "<C-a>",
-        mode = "n",
+        "<leader>cc",
+        mode = { "n", "v" },
         function()
-          require("dial.map").inc_normal()
+          require("nvim-toggler").toggle()
         end,
-      },
-      {
-        "<C-x>",
-        mode = "n",
-        function()
-          require("dial.map").dec_normal()
-        end,
-      },
-      {
-        "g<C-a>",
-        mode = "n",
-        function()
-          require("dial.map").inc_gnormal()
-        end,
-      },
-      {
-        "g<C-x>",
-        mode = "n",
-        function()
-          require("dial.map").dec_gnormal()
-        end,
-      },
-      {
-        "<C-a>",
-        mode = "v",
-        function()
-          require("dial.map").inc_visual()
-        end,
-      },
-      {
-        "<C-x>",
-        mode = "v",
-        function()
-          require("dial.map").dec_visual()
-        end,
-      },
-      {
-        "g<C-a>",
-        mode = "v",
-        function()
-          require("dial.map").inc_gvisual()
-        end,
-      },
-      {
-        "g<C-x>",
-        mode = "v",
-        function()
-          require("dial.map").dec_gvisual()
-        end,
+        desc = "Inverses",
       },
     },
+  },
+  {
+    "chrisgrieser/nvim-origami",
+    -- enabled = false,
+    event = "BufReadPost", -- later or on keypress would prevent saving folds
+    opts = {
+      keepFoldsAcrossSessions = true,
+      pauseFoldsOnSearch = false,
+      setupFoldKeymaps = false,
+    }, -- needed even when using default config
   },
 }

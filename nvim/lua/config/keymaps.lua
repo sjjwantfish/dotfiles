@@ -39,7 +39,7 @@ vim.api.nvim_create_user_command("SwitchEncoding", function()
 end, { nargs = "?", complete = "dir" })
 keymap("n", "<leader>ue", "<cmd>SwitchEncoding<cr>", opts)
 
-keymap("n", "za", "zA", opts)
+-- keymap("n", "za", "zA", opts)
 keymap("n", "gw", "*N", opts)
 
 vim.api.nvim_create_user_command("MySelect", function()
