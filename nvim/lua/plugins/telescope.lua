@@ -136,7 +136,7 @@ return {
         find_files = {
           theme = "ivy",
           find_command = { "rg", "--files", "--hidden", "-g", "!.git", "-g", "!devTools", "-g", "!vendor" },
-          previewer = false,
+          -- previewer = false,
         },
         live_grep = {
           theme = "ivy",
@@ -199,6 +199,47 @@ return {
             ["k"] = actions.move_selection_previous,
           },
         },
+      },
+    },
+  },
+
+  {
+    "axkirillov/easypick.nvim",
+    dependencies = "nvim-telescope/telescope.nvim",
+    config = function()
+      local easypick = require("easypick")
+      local function joinList(list, separator)
+        local result = ""
+        local len = #list
+        for i, item in ipairs(list) do
+          result = result .. item
+          if i < len then
+            result = result .. separator
+          end
+        end
+        return result
+      end
+
+      easypick.setup({
+        pickers = {
+          {
+            name = "filehistory",
+            command = "cat << EOF\n" .. joinList({
+              "DiffviewFileHistory %",
+              "DiffviewFileHistory",
+            }, "\n") .. "\nEOF",
+            action = easypick.actions.nvim_command(),
+            opts = require("telescope.themes").get_dropdown({}),
+          },
+        },
+      })
+    end,
+    keys = {
+      {
+        "<leader>dd",
+        mode = { "n" },
+        "<cmd>Easypick filehistory<cr>",
+        desc = "Diffview file history pick",
       },
     },
   },

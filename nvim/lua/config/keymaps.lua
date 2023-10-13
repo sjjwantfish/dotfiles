@@ -60,3 +60,14 @@ vim.api.nvim_create_user_command("MySelect", function()
     end
   end)
 end, { nargs = "?", complete = "dir" })
+
+vim.api.nvim_create_user_command("MyPaste", function()
+  local data = {
+    "a",
+    "b",
+    "c",
+  }
+  for _, value in ipairs(data) do
+    vim.api.nvim_paste(value .. "\n", true, -1)
+  end
+end, { nargs = "?", complete = "dir" })

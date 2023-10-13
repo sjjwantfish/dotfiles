@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 
-opt.scrolloff = 4
+-- opt.scrolloff = 4
 opt.relativenumber = false
 opt.shiftwidth = 4
 opt.foldenable = true
