@@ -182,8 +182,36 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
+      local cmd_write_grp = vim.api.nvim_create_augroup("GoCmdWrite", {})
+      local go_commands = {
+        "GoStop",
+        "GoAddTest",
+        "GoRename",
+        "GoAddTags",
+        "GoRmTags",
+        "GoImpl",
+      }
+      for _, cmd in ipairs(go_commands) do
+        vim.api.nvim_create_autocmd("User", {
+          pattern = cmd,
+          command = ":w | :" .. cmd,
+          group = cmd_write_grp,
+        })
+      end
+
+      local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.go",
+        callback = function()
+          require("go.format").goimport()
+        end,
+        group = format_sync_grp,
+      })
+
       require("go").setup({
         icons = { breakpoint = "B", currentpos = "->" },
+        run_in_floaterm = true,
+        luasnip = true,
       })
     end,
     event = { "CmdlineEnter" },
