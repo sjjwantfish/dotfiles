@@ -53,4 +53,11 @@ return {
       },
     },
   },
+  {
+    "rafcamlet/nvim-luapad",
+    opts = {
+      error_indicator = false,
+      eval_on_change = false,
+    },
+  },
 }

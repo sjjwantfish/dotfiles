@@ -11,6 +11,10 @@ return {
           k = { "<cmd>wincmd K<cr>", "Move window to top" },
           l = { "<cmd>wincmd L<cr>", "Move window to right" },
         },
+        g = {
+          name = "git",
+          o = { "<cmd>!git open<cr><cr>", "Git open" },
+        },
       }, { prefix = "<leader>" })
     end,
   },

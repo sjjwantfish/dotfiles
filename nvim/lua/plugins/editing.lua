@@ -95,6 +95,9 @@ return {
   {
     "nguyenvukhang/nvim-toggler",
     opts = {
+      inverses = {
+        ["-"] = "_",
+      },
       -- removes the default <leader>i keymap
       remove_default_keybinds = true,
       -- removes the default set of inverses
