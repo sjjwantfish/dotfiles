@@ -28,16 +28,9 @@ return {
       "crispgm/telescope-heading.nvim",
       "LinArcX/telescope-env.nvim",
       "ThePrimeagen/harpoon",
+      "sjjwantfish/encodings.nvim",
     },
     config = function(_, opts)
-      telescope.load_extension("vim_bookmarks")
-      telescope.load_extension("undo")
-      telescope.load_extension("git_diffs")
-      telescope.load_extension("emoji")
-      telescope.load_extension("heading")
-      telescope.load_extension("env")
-      telescope.load_extension("harpoon")
-      -- telescope.load_extension("aerial")
       local lga_actions = require("telescope-live-grep-args.actions")
       opts.extensions = {
         undo = {},
@@ -73,6 +66,15 @@ return {
         heading = { treesitter = true },
       }
       telescope.setup(opts)
+      telescope.load_extension("vim_bookmarks")
+      telescope.load_extension("undo")
+      telescope.load_extension("git_diffs")
+      telescope.load_extension("emoji")
+      telescope.load_extension("heading")
+      telescope.load_extension("env")
+      telescope.load_extension("harpoon")
+      telescope.load_extension("encodings")
+      -- telescope.load_extension("aerial")
     end,
     keys = {
       {
