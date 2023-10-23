@@ -15,6 +15,10 @@ return {
           name = "git",
           o = { "<cmd>!git open<cr><cr>", "Git open" },
         },
+        s = {
+          name = "Search",
+          e = { "<cmd>Telescope encodings<cr>", "Search encodings" },
+        },
       }, { prefix = "<leader>" })
     end,
   },
