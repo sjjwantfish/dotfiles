@@ -124,4 +124,5 @@ return {
       setupFoldKeymaps = false,
     }, -- needed even when using default config
   },
+  { "LintaoAmons/scratch.nvim" },
 }
