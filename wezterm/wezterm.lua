@@ -55,8 +55,8 @@ local config = {
 			}),
 		},
 		{
-			key = "P",
-			mods = "CTRL",
+			key = "l",
+			mods = "ALT",
 			action = wezterm.action.QuickSelectArgs({
 				label = "open url",
 				patterns = {
