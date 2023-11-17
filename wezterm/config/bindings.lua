@@ -105,8 +105,8 @@ local keys = {
 		action = act.RotatePanes("CounterClockwise"),
 	},
 	-- scroll
-	{ key = "k", mods = mod.SUPER, action = act({ ScrollByPage = -1 }) },
-	{ key = "j", mods = mod.SUPER, action = act({ ScrollByPage = 1 }) },
+	{ key = "e", mods = mod.SUPER, action = act({ ScrollByPage = -1 }) },
+	{ key = "q", mods = mod.SUPER, action = act({ ScrollByPage = 1 }) },
 	-- rename tab
 	{
 		key = "R",
