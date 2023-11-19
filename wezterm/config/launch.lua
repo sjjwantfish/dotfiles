@@ -1,4 +1,5 @@
 local platform = require("utils.platform")()
+local domains = require("config.domains")
 
 local options = {
 	default_prog = {},
@@ -6,7 +7,8 @@ local options = {
 }
 
 if platform.is_win then
-	options.default_prog = { "powershell" }
+	-- options.default_prog = { "powershell" }
+	options.default_domain = domains.wsl_domains[1]["name"]
 	options.launch_menu = {
 		{ label = "PowerShell Core", args = { "pwsh" } },
 		{ label = "PowerShell Desktop", args = { "powershell" } },

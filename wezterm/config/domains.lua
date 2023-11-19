@@ -34,11 +34,11 @@ return {
 	-- ref: https://wezfurlong.org/wezterm/config/lua/WslDomain.html
 	wsl_domains = {
 		{
-			name = "WSL:Ubuntu",
-			distribution = "Ubuntu",
-			username = "kevin",
-			default_cwd = "/home/kevin",
-			default_prog = { "fish" },
+			name = "WSL:Arch",
+			distribution = "Arch",
+			username = "sjjwantfish",
+			default_cwd = "/home/sjjwantfish",
+			default_prog = { "zsh" },
 		},
 	},
 }
