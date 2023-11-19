@@ -4,6 +4,9 @@ return {
 	check_for_updates = false,
 	status_update_interval = 1000,
 
+	-- bell
+	audible_bell = "Disabled",
+
 	-- scrollbar
 	scrollback_lines = 5000,
 
