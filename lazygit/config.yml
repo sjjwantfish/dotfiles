@@ -1,5 +1,6 @@
 gui:
-  # Use the mocha catppuccin theme
+  nerdFontsVersion: "3"
+  language: "en"
   theme:
     activeBorderColor:
       - '#89b4fa'
