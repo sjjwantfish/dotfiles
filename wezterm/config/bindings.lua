@@ -120,6 +120,61 @@ local keys = {
 			end),
 		}),
 	},
+	{
+		key = "o",
+		mods = mod.SUPER,
+		action = wezterm.action_callback(function(window, pane)
+			local choices = {}
+			for _, name in ipairs(wezterm.mux.get_workspace_names()) do
+				table.insert(choices, { label = tostring(name) })
+			end
+			window:perform_action(
+				act.InputSelector({
+					action = wezterm.action_callback(function(window, pane, id, label)
+						if not id and not label then
+							wezterm.log_info("cancelled")
+						else
+							wezterm.log_info("switch workspace ", id, label)
+							window:perform_action(
+								act.SwitchToWorkspace({
+									name = label,
+									spawn = {
+										label = "Workspace: " .. label,
+										cwd = id,
+									},
+								}),
+								pane
+							)
+						end
+					end),
+					title = "Switch workspace",
+					choices = choices,
+				}),
+				pane
+			)
+		end),
+	},
+	{
+		key = "i",
+		mods = mod.SUPER,
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 }
 local mouse_bindings = {
 	{
