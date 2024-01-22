@@ -1,13 +1,17 @@
 local wezterm = require("wezterm")
-local math = require("utils.math")
 local M = {}
 
 M.setup = function()
 	wezterm.on("update-right-status", function(window, _pane)
 		window:set_right_status(wezterm.format({
-			{ Attribute = { Underline = "Single" } },
+			{ Background = { Color = "#11111b" } },
+			{ Foreground = { Color = "#bda0f1" } },
+			{ Attribute = { Intensity = "Bold" } },
+			{ Text = "" },
+			{ Background = { Color = "#bda0f1" } },
+			{ Foreground = { Color = "#11111b" } },
 			{ Attribute = { Italic = true } },
-			{ Text = wezterm.mux.get_active_workspace() },
+			{ Text = string.format(" %s ", wezterm.mux.get_active_workspace()) },
 		}))
 	end)
 end

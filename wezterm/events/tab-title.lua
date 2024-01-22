@@ -17,17 +17,17 @@ M.cells = {}
 
 M.colors = {
 	default = {
-		bg = "#006039",
-		fg = "#1c1b19",
+		bg = "#171821",
+		fg = "#b9c2df",
 	},
 	is_active = {
-		bg = "#c0ff28",
+		bg = "#bda0f1",
 		fg = "#11111b",
 	},
 
 	hover = {
-		bg = "#00ad65",
-		fg = "#1c1b19",
+		bg = "#7ea1d4",
+		fg = "#b9c2df",
 	},
 }
 
@@ -36,14 +36,16 @@ M.set_process_name = function(s)
 	return a:gsub("%.exe$", "")
 end
 
-M.set_title = function(process_name, static_title, active_title, max_width, inset)
+M.set_title = function(process_name, tab_idx, static_title, active_title, max_width, inset)
 	local title
 	inset = inset or 6
 
 	if process_name:len() > 0 and static_title:len() == 0 then
-		title = process_name .. " ~ " .. " "
+		-- title = process_name .. " ~ " .. " "
+		title = process_name .. " ~ "
 	elseif static_title:len() > 0 then
-		title = static_title .. " ~ " .. " "
+		-- title = static_title .. " ~ " .. " "
+		title = static_title .. " ~ "
 	else
 		title = active_title .. " ㉿ " .. " "
 	end
@@ -53,7 +55,7 @@ M.set_title = function(process_name, static_title, active_title, max_width, inse
 		title = wezterm.truncate_right(title, title:len() - diff)
 	end
 
-	return title
+	return tostring(tab_idx + 1) .. "." .. title
 end
 
 M.check_if_admin = function(p)
@@ -82,7 +84,8 @@ M.setup = function()
 		local fg
 		local process_name = M.set_process_name(tab.active_pane.foreground_process_name)
 		local is_admin = M.check_if_admin(tab.active_pane.title)
-		local title = M.set_title(process_name, tab.tab_title, tab.active_pane.title, max_width, (is_admin and 8))
+		local title =
+			M.set_title(process_name, tab.tab_index, tab.tab_title, tab.active_pane.title, max_width, (is_admin and 8))
 
 		if tab.is_active then
 			bg = M.colors.is_active.bg
@@ -104,53 +107,31 @@ M.setup = function()
 		end
 
 		-- Left semi-circle
-		M.push(fg, bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_LEFT)
+		-- M.push(fg, bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_LEFT)
 
-		-- Admin Icon
-		if is_admin then
-			M.push(bg, fg, { Intensity = "Bold" }, " " .. GLYPH_ADMIN)
-		end
+		-- -- Admin Icon
+		-- if is_admin then
+		-- 	M.push(bg, fg, { Intensity = "Bold" }, " " .. GLYPH_ADMIN)
+		-- end
 
 		-- Title
 		M.push(bg, fg, { Intensity = "Bold" }, " " .. title)
+		-- M.push(bg, fg, { Intensity = "Bold" }, " " .. tab.active_pane.title)
 
 		-- Unseen output alert
 		if has_unseen_output then
-			M.push(bg, "#FFA066", { Intensity = "Bold" }, " " .. GLYPH_CIRCLE)
+			-- M.push(bg, "#FFA066", { Intensity = "Bold" }, " " .. GLYPH_CIRCLE)
+			M.push(bg, fg, { Intensity = "Bold" }, " " .. "*")
 		end
 
 		-- Right padding
 		M.push(bg, fg, { Intensity = "Bold" }, " ")
 
 		-- Right semi-circle
-		M.push(fg, bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_RIGHT)
+		-- M.push(fg, bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_RIGHT)
 
 		return M.cells
 	end)
 end
 
 return M
-
--- local CMD_ICON = utf8.char(0xe62a)
--- local NU_ICON = utf8.char(0xe7a8)
--- local PS_ICON = utf8.char(0xe70f)
--- local ELV_ICON = utf8.char(0xfc6f)
--- local WSL_ICON = utf8.char(0xf83c)
--- local YORI_ICON = utf8.char(0xf1d4)
--- local NYA_ICON = utf8.char(0xf61a)
---
--- local VIM_ICON = utf8.char(0xe62b)
--- local PAGER_ICON = utf8.char(0xf718)
--- local FUZZY_ICON = utf8.char(0xf0b0)
--- local HOURGLASS_ICON = utf8.char(0xf252)
--- local SUNGLASS_ICON = utf8.char(0xf9df)
---
--- local PYTHON_ICON = utf8.char(0xf820)
--- local NODE_ICON = utf8.char(0xe74e)
--- local DENO_ICON = utf8.char(0xe628)
--- local LAMBDA_ICON = utf8.char(0xfb26)
---
--- local SOLID_LEFT_ARROW = utf8.char(0xe0ba)
--- local SOLID_LEFT_MOST = utf8.char(0x2588)
--- local SOLID_RIGHT_ARROW = utf8.char(0xe0bc)
--- local ADMIN_ICON = utf8.char(0xf49c)
