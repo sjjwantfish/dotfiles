@@ -149,6 +149,7 @@ local keys = {
 					end),
 					title = "Switch workspace",
 					choices = choices,
+					fuzzy = true,
 				}),
 				pane
 			)
