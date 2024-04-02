@@ -1,7 +1,6 @@
--- local colors = require("colors.custom")
--- local fonts = require('config.fonts')
+local platform = require("utils.platform")()
 
-return {
+local config = {
 	color_scheme = "Catppuccin Mocha",
 	-- term = 'xterm-256color',
 	animation_fps = 60,
@@ -35,3 +34,9 @@ return {
 	window_background_opacity = 0.9,
 	adjust_window_size_when_changing_font_size = false,
 }
+
+if platform.is_mac then
+	config["window_decorations"] = "RESIZE"
+end
+
+return config
