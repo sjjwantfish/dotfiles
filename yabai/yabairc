@@ -33,7 +33,8 @@ yabai -m rule --apply app="*Chrome*" display=1 space=2 manage=on sticky=off
 
 yabai -m rule --add app="^iStat*" sticky=on layer=above manage=off border=off
 yabai -m rule --add app="^Preview*" manage=off 
-yabai -m rule --add app="^System Preferences*" sticky=on layer=above manage=off border=off
+yabai -m rule --add app="System Settings" manage=off
+yabai -m rule --add app="WeCom" title!='WeCom' manage=off 
 yabai -m rule --add app="^WeChat*" title!="WeChat (Chats)" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
