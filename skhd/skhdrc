@@ -11,46 +11,48 @@
 #    \__\/           /__/:/       \__\::/        /__/:/       \__\/    
 #                    \__\/            ~~         \__\/                 
 
+# restart yabai
+shift + cmd - c: sh $HOME/.config/skhd/yabai/start.sh
+
 # focus window
-lalt + cmd - h : yabai -m window --focus west
-lalt + cmd - j : yabai -m window --focus south
-lalt + cmd - k : yabai -m window --focus north
-lalt + cmd - l : yabai -m window --focus east
+lalt + cmd - h : yabai -m window --focus west  || yabai -m display --focus west
+lalt + cmd - j : yabai -m window --focus south || yabai -m display --focus south
+lalt + cmd - k : yabai -m window --focus north || yabai -m display --focus north
+lalt + cmd - l : yabai -m window --focus east  || yabai -m display --focus east
 
 # move by direction
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east
+shift + cmd - h : sh $HOME/.config/skhd/yabai/swap.sh west
+shift + cmd - j : sh $HOME/.config/skhd/yabai/swap.sh south
+shift + cmd - k : sh $HOME/.config/skhd/yabai/swap.sh north
+shift + cmd - l : sh $HOME/.config/skhd/yabai/swap.sh east
 shift + cmd - r : yabai -m space --rotate 90
-
+shift + cmd - b : sh $HOME/.config/skhd/yabai/balance.sh
 
 # move window to space
-# TODO move window to space and focus on it
-shift + cmd - 1 : yabai -m window --space 1 && $HOME/.config/skhd/yabai.sh focus_space 1 
-shift + cmd - 2 : yabai -m window --space 2 && $HOME/.config/skhd/yabai.sh focus_space 2 
-shift + cmd - 3 : yabai -m window --space 3 && $HOME/.config/skhd/yabai.sh focus_space 3 
-shift + cmd - 4 : yabai -m window --space 4 && $HOME/.config/skhd/yabai.sh focus_space 4 
-shift + cmd - 5 : yabai -m window --space 5 && $HOME/.config/skhd/yabai.sh focus_space 5 
-shift + cmd - 6 : yabai -m window --space 6 && $HOME/.config/skhd/yabai.sh focus_space 6 
-shift + cmd - 7 : yabai -m window --space 7 && $HOME/.config/skhd/yabai.sh focus_space 7 
-shift + cmd - 8 : yabai -m window --space 8 && $HOME/.config/skhd/yabai.sh focus_space 8 
-shift + cmd - 9 : yabai -m window --space 9 && $HOME/.config/skhd/yabai.sh focus_space 9 
+shift + cmd - 1 : yabai -m window --space 1 --focus
+shift + cmd - 2 : yabai -m window --space 2 --focus
+shift + cmd - 3 : yabai -m window --space 3 --focus
+shift + cmd - 4 : yabai -m window --space 4 --focus
+shift + cmd - 5 : yabai -m window --space 5 --focus
+shift + cmd - 6 : yabai -m window --space 6 --focus
+shift + cmd - 7 : yabai -m window --space 7 --focus
+shift + cmd - 8 : yabai -m window --space 8 --focus
+shift + cmd - 9 : yabai -m window --space 9 --focus
 
 # toggle window properties
 shift + cmd - g : yabai -m window --toggle zoom-fullscreen
 shift + cmd - f : yabai -m window --toggle float
 
 # focus space
-cmd - 1 : $HOME/.config/skhd/yabai.sh focus_space 1
-cmd - 2 : $HOME/.config/skhd/yabai.sh focus_space 2
-cmd - 3 : $HOME/.config/skhd/yabai.sh focus_space 3
-cmd - 4 : $HOME/.config/skhd/yabai.sh focus_space 4
-cmd - 5 : $HOME/.config/skhd/yabai.sh focus_space 5
-cmd - 6 : $HOME/.config/skhd/yabai.sh focus_space 6
-cmd - 7 : $HOME/.config/skhd/yabai.sh focus_space 7
-cmd - 8 : $HOME/.config/skhd/yabai.sh focus_space 8
-cmd - 9 : $HOME/.config/skhd/yabai.sh focus_space 9
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
+cmd - 3 : yabai -m space --focus 3
+cmd - 4 : yabai -m space --focus 4
+cmd - 5 : yabai -m space --focus 5
+cmd - 6 : yabai -m space --focus 6
+cmd - 7 : yabai -m space --focus 7
+cmd - 8 : yabai -m space --focus 8
+cmd - 9 : yabai -m space --focus 9
 # ctrl + cmd - c : yabai -m space --create
 # ctrl + cmd - d : yabai -m space --destory
 
@@ -60,3 +62,6 @@ ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resi
 ctrl + lalt - k : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
 ctrl + lalt - j : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
 
+
+# terminal
+lalt - n : wezterm
