@@ -15,10 +15,10 @@
 shift + cmd - c: sh $HOME/.config/skhd/yabai/start.sh
 
 # focus window
-lalt + cmd - h : yabai -m window --focus west  || yabai -m display --focus west
-lalt + cmd - j : yabai -m window --focus south || yabai -m display --focus south
-lalt + cmd - k : yabai -m window --focus north || yabai -m display --focus north
-lalt + cmd - l : yabai -m window --focus east  || yabai -m display --focus east
+cmd - h : yabai -m window --focus west  || yabai -m display --focus west
+cmd - j : yabai -m window --focus south || yabai -m display --focus south
+cmd - k : yabai -m window --focus north || yabai -m display --focus north
+cmd - l : yabai -m window --focus east  || yabai -m display --focus east
 
 # move by direction
 shift + cmd - h : sh $HOME/.config/skhd/yabai/swap.sh west
