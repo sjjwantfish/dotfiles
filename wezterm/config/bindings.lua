@@ -18,6 +18,7 @@ local keys = {
 	{ key = "z", mods = mod.SUPER_REV, action = act.TogglePaneZoomState },
 	-- paste
 	{ key = "v", mods = mod.SUPER, action = act({ PasteFrom = "Clipboard" }) },
+	{ key = "v", mods = "SUPER", action = act({ PasteFrom = "Clipboard" }) },
 	{
 		key = "s",
 		mods = mod.SUPER,
