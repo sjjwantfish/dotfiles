@@ -8,7 +8,7 @@ return {
 	audible_bell = "Disabled",
 
 	-- scrollbar
-	scrollback_lines = 5000,
+	scrollback_lines = 20000,
 
 	-- paste behaviours
 	canonicalize_pasted_newlines = "CarriageReturn",
