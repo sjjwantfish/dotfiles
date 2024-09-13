@@ -41,6 +41,14 @@ yabai -m rule --add app="飞连" manage=off border=off
 yabai -m rule --add app="WeCom" title!='WeCom' manage=off 
 yabai -m rule --add app="微信" title!='微信' manage=off 
 yabai -m rule --add app="^WeChat*" title!="WeChat (Chats)" manage=off
+yabai -m rule --add app="^Feishu*" title!="飞书" manage=off
+# yabai -m rule --add app="^WeChat*" title!="WeChat (Chats)" manage=off display=east
+# yabai -m rule --add app="Feishu" display=west
+
+# yabai -m signal --add app="Feishu" event=window_focused action="date >> /Users/admin/date.txt"
+# yabai -m signal --apply event=system_woke action="sh $HOME/.config/skhd/yabai/system_woke.sh"
+# yabai -m signal --apply event=display_changed action="date >> /Users/admin/date.txt; echo $YABAI_DISPLAY_ID, $YABAI_DISPLAY_INDEX, $YABAI_RECENT_DISPLAY_ID, $YABAI_RECENT_DISPLAY_INDEX >> /Users/admin/date.txt"
+
 
 # yabai -m rule --add app="^.*Chrome" manage=off
 
