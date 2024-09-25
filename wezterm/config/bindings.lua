@@ -83,10 +83,13 @@ local keys = {
 		mods = mod.SUPER,
 		action = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 	},
-	{ key = "LeftArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Left" }) },
-	{ key = "RightArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Right" }) },
-	{ key = "UpArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Up" }) },
-	{ key = "DownArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Down" }) },
+	{ key = "LeftArrow", mods = mod.SUPER_REV, action = act({ ActivatePaneDirection = "Left" }) },
+	{ key = "RightArrow", mods = mod.SUPER_REV, action = act({ ActivatePaneDirection = "Right" }) },
+	{ key = "UpArrow", mods = mod.SUPER_REV, action = act({ ActivatePaneDirection = "Up" }) },
+	{ key = "DownArrow", mods = mod.SUPER_REV, action = act({ ActivatePaneDirection = "Down" }) },
+	-- Terminal shortcuts
+	{ key = "LeftArrow", mods = "ALT", action = wezterm.action({ SendString = "\x1bb" }) },
+	{ key = "RightArrow", mods = "ALT", action = wezterm.action({ SendString = "\x1bf" }) },
 	-- Zoom pane
 	{ key = "Z", mods = "CTRL", action = wezterm.action.TogglePaneZoomState },
 	-- Activate Tab
