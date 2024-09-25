@@ -87,6 +87,8 @@ local keys = {
 	{ key = "RightArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Right" }) },
 	{ key = "UpArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Up" }) },
 	{ key = "DownArrow", mods = mod.SUPER, action = act({ ActivatePaneDirection = "Down" }) },
+	-- Zoom pane
+	{ key = "Z", mods = "CTRL", action = wezterm.action.TogglePaneZoomState },
 	-- Activate Tab
 	{ key = "1", mods = mod.SUPER, action = act({ ActivateTab = 0 }) },
 	{ key = "2", mods = mod.SUPER, action = act({ ActivateTab = 1 }) },
