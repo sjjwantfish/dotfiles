@@ -65,4 +65,4 @@ options=(
     blacklist="飞连"
 )
 
-borders "${options[@]}" &
+# borders "${options[@]}" &
